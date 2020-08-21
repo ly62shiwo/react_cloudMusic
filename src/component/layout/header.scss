@@ -1,0 +1,38 @@
+.nav {
+  position: relative;
+  z-index: 1000;
+  height: 70px;
+  box-sizing: border-box;
+  background: #242424;
+  border-bottom: 1px solid #000;
+  .logo {
+    float: left;
+    width: 176px;
+    height: 69px;
+    background: url(../../assets/topbar.png) no-repeat 0 -2px;
+    a {
+      width: 100;
+      height: 100%;
+      display: block;
+    }
+  }
+  .navUl {
+    display: flex;
+    .navLi {
+      a {
+        display: block;
+        line-height: 70px;
+        padding: 0 19px;
+        color: #ccc;
+      }
+        a:hover {
+          background-color: #000000;
+          color: #ffffff;
+        }
+      .action {
+        background-color: #000000;
+        color: #ffffff;
+      }
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import { Redirect } from "react-router-dom";
 import Home from '../views/home/Home.jsx';
+
 const SuspenseComponent = (Component) => (props) => {
   return (
     <Suspense fallback={<div>loading...</div>}>
