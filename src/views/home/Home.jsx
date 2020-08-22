@@ -7,7 +7,7 @@ function Home(props) {
     return (
         <div>
             <Header location ={location}/>
-            {/* {renderRoutes(route.routes)} */}
+            {renderRoutes(route.routes)}
         </div>
     )
 }

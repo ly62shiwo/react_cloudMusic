@@ -1,6 +1,7 @@
 .nav {
   position: relative;
-  z-index: 1000;
+  z-index: 99;
+  width: 100%;
   height: 70px;
   box-sizing: border-box;
   background: #242424;
@@ -19,20 +20,70 @@
   .navUl {
     display: flex;
     .navLi {
+      position: relative;
+      .sanjiao {
+        position: absolute;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-bottom: 7px solid #d61414;
+      }
       a {
         display: block;
         line-height: 70px;
         padding: 0 19px;
         color: #ccc;
+        font-size: 14px;
       }
-        a:hover {
-          background-color: #000000;
-          color: #ffffff;
-        }
+      a:hover {
+        background-color: #000000;
+        color: #ffffff;
+      }
       .action {
         background-color: #000000;
         color: #ffffff;
       }
     }
   }
+}
+
+.navBar {
+  display: flex;
+  justify-content: flex-start;
+  z-index: 99;
+  width: 100%;
+  height: 35px;
+  background-color: #d61414;
+  .navUl {
+    padding-left: 180px;
+    box-sizing: border-box;
+    line-height: 35px;
+    .navLi {
+      float: left;
+      margin: 0 15px;
+      a {
+        font-size: 12px;
+        padding: 3px 15px;
+        border-radius: 20px;
+      }
+      a:hover {
+        background-color: #9b0909;
+        color: #ffffff;
+      }
+      .actionTwo {
+        background-color: #9b0909;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+.navBarString {
+  z-index: 10;
+  height: 5px;
+  background-color: #d61414;
 }

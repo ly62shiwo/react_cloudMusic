@@ -33,4 +33,37 @@ const navMenus = [
   },
 ];
 
-export default navMenus;
+const navMenusTwo = [
+  {
+    key: "commend",
+    path: "/discover",
+    title: "推荐",
+  },
+  {
+    key: "toplist",
+    path: "/discover/toplist",
+    title: "排行榜",
+  },
+  {
+    key: "playlist",
+    path: "/discover/playlist",
+    title: "歌单",
+  },
+  {
+    key: "djradio",
+    path: "/discover/djradio",
+    title: "主播电台",
+  },
+  {
+    key: "artist",
+    path: "/discover/artist",
+    title: "歌手",
+  },
+  {
+    key: "album",
+    path: "/discover/album",
+    title: "新碟上架",
+  },
+];
+
+export { navMenus, navMenusTwo };
