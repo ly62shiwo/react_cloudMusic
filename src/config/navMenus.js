@@ -2,7 +2,7 @@ const navMenus = [
   {
     key: "discover",
     title: "发现音乐",
-    path: "/",
+    path: "/discover",
   },
   {
     key: "my",

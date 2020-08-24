@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { navMenus, navMenusTwo } from "@/config/navMenus.js";
 import "./header.scss";
@@ -6,6 +6,13 @@ import "./header.scss";
 function Header(props) {
   console.log(props);
   const [select, setSelect] = useState("discover");
+
+  useEffect(() => {
+    if(props.location.pathname === '/download') {
+      return setSelect('download')
+    }
+  });
+
   return (
     <div>
       {/* nav导航 */}
@@ -27,7 +34,7 @@ function Header(props) {
                   <Link
                     className={select === item.key ? "action" : null}
                     to={item.path}
-                    target={item.target}
+                    // target={item.target}
                   >
                     {item.title}
                   </Link>
@@ -55,7 +62,7 @@ function Header(props) {
         </div>
       </div>
 
-      {select === "discover" ? (
+      {select === "discover"  ? (
         <div className='navBar'>
           <ul className='navUl wrap'>
             {navMenusTwo.map((item) => {
