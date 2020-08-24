@@ -10,7 +10,10 @@ function Header(props) {
   useEffect(() => {
     if(props.location.pathname === '/download') {
       return setSelect('download')
+    } else if (props.location.pathname === '/discover') {
+      return setSelect('discover')
     }
+
   });
 
   return (
