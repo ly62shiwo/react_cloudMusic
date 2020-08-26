@@ -33,11 +33,11 @@ function DiscoverSwiper(props) {
       <div className='swiper wrap'>
         <div className='swiper-container'>
           <div className='swiper-wrapper'>
-            {bannerList.map((slider, index) => {
+            {bannerList.map((slider,index) => {
               return (
                 <div className='swiper-slide' key={index}>
                   {/* <a href={slider.url}> */}
-                    <img src={slider.imageUrl} alt='推荐' />
+                  <img src={slider.imageUrl} alt='推荐' />
                   {/* </a> */}
                 </div>
               );

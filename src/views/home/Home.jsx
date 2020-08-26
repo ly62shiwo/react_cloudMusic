@@ -1,6 +1,7 @@
 import React from 'react'
 import { renderRoutes } from 'react-router-config';
-import Header from '@/component/layout/Header.jsx'
+import Header from '@/layout/Header.jsx'
+
 function Home(props) {
     const {route , location} = props
     // console.log(props);

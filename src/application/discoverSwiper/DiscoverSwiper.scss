@@ -1,15 +1,16 @@
 .banner {
   height: 285px;
-  //   background: rgba($color: #000000, $alpha: 0.2);
-  //   background-size: 6000px;
-  //   background-position: center center;
+  // width: 100%;
+  background-size: 6000px;
+  background-position: center center;
 }
 .swiper {
   position: relative;
   .swiper-container {
     float: left;
-    margin-left: 60px;
+    // margin-left: 60px;
     width: 730px;
+    // border-radius: 20px;
     .swiper-pagination {
       .swiper-pagination-bullet {
         width: 6px;
@@ -44,7 +45,7 @@
     position: absolute;
     top: 0;
     z-index: 10;
-    right: 59px;
+    right: 119px;
     width: 251px;
     height: 285px;
     background: url(../../assets/download.png) no-repeat 0 0;
