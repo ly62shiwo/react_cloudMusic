@@ -1,22 +1,33 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import * as actionType from "./store/actionCreators";
-import DiscoverSwiper from "@/application/discoverSwiper/discoverSwiper.jsx";
+import {
+  DiscoverSwiper,
+  HotCommend,
+  NewDiscShelf,
+} from "@/application/discoverComp";
 
 function Discover(props) {
-  //   console.log(props, "Discover");
-  const { bannerList } = props; // 数据
-  const { getBannerDataDispatch, getHotCommendDispatch } = props; // dispatch
+  const { bannerList, hotCommendList, newDiscShelfList } = props; // 数据
+  const {
+    getBannerDataDispatch,
+    getHotCommendDispatch,
+    getNewDiscShelfDispatch,
+  } = props; // dispatch
 
   useEffect(() => {
     getBannerDataDispatch();
     getHotCommendDispatch();
+    getNewDiscShelfDispatch();
   }, []);
-
 
   return (
     <div>
       <DiscoverSwiper bannerList={bannerList} />
+
+      <HotCommend hotCommendList={hotCommendList} />
+
+      <NewDiscShelf newDiscShelfList={newDiscShelfList} />
     </div>
   );
 }
@@ -24,6 +35,8 @@ function Discover(props) {
 const mapStateToProps = (state) => {
   return {
     bannerList: state.discover.bannerList,
+    hotCommendList: state.discover.hotCommendList,
+    newDiscShelfList: state.discover.newDiscShelfList,
   };
 };
 // 映射dispatch到props上
@@ -34,6 +47,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     getHotCommendDispatch() {
       dispatch(actionType.getHotCommendList());
+    },
+    getNewDiscShelfDispatch() {
+      dispatch(actionType.getNewDiscShelfList());
     },
   };
 };

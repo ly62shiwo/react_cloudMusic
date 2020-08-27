@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes.js';
-import { getBannerRequest, getHotCommendRequest } from '@/api/request';
+import { getBannerRequest, getHotCommendRequest, getNewDiscShelfRequest } from '@/api/request';
 
 export const changeBannerList = (data) => ({
   type: actionTypes.CHANGE_BANNER,
@@ -11,10 +11,14 @@ export const changeHotCommendList = (data) => ({
   payload: data
 });
 
+export const changeNewDiscShelfRequest = (data) => ({
+  type: actionTypes.CHANGE_NEW_DISC_SHELF ,
+  payload: data
+});
+
 export const getBannerList = () => {
   return (dispatch) => {
     getBannerRequest ().then (data => {
-      console.log(data);
       dispatch (changeBannerList (data.banners));
     }).catch (() => {
       console.log ("轮播图数据传输错误");
@@ -24,12 +28,24 @@ export const getBannerList = () => {
 
 export const getHotCommendList = () => {
   return dispatch => {
-    getHotCommendRequest().then(data => {
-      console.log(data);
-      dispatch (changeHotCommendList (data.banners));
+    let query = 'limit=8&order=hot'
+    getHotCommendRequest(query).then(data => {
+      dispatch (changeHotCommendList (data.playlists));
     }).catch (() => {
       console.log ("热门推荐数据传输错误");
     }) 
   }
 }
+
+export const getNewDiscShelfList = () => {
+  return dispatch => {
+    getNewDiscShelfRequest().then(data => {
+      console.log(data);
+      dispatch (changeNewDiscShelfRequest (data.monthData));
+    }).catch (() => {
+      console.log ("新碟上架数据传输错误");
+    }) 
+  }
+}
+
 

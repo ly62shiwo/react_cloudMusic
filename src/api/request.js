@@ -3,8 +3,11 @@ import { axiosInstance } from "./index.js";
 export const getBannerRequest = () => {
   return axiosInstance.get("/banner?type=0");
 };
-// 首页热门推荐
-export const getHotCommendRequest = () => {
-  return axiosInstance.get("/top/playlist?limit=8&order=hot");
+// 热门推荐
+export const getHotCommendRequest = (data) => {
+  return axiosInstance.get(`/top/playlist?${data}`);
 };
-
+// 新碟上架
+export const getNewDiscShelfRequest = () => {
+  return axiosInstance.get(`/top/album?&limit=10`);
+};

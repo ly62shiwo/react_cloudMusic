@@ -4,7 +4,7 @@ import Home from '../views/home/Home.jsx';
 
 const SuspenseComponent = (Component) => (props) => {
   return (
-    <Suspense fallback={<div>loading...</div>}>
+    <Suspense fallback='null'>
       <Component {...props}></Component>
     </Suspense>
   );
@@ -12,11 +12,11 @@ const SuspenseComponent = (Component) => (props) => {
 
 // const Home = () => import("../views/home/Home.jsx");
 const Discover = lazy(() => import("../views/discover/Discover.jsx")); // 推荐
-const Toplist = lazy(() => import("../views/discover/toplist/Toplist.jsx")); // 排行榜
-const Playlist = lazy(() => import("../views/discover/playlist/Playlist.jsx")); // 歌单
-const Djradio = lazy(() => import("../views/discover/djradio/Djradio.jsx")); // 主播电台
-const Artist = lazy(() => import("../views/discover/artist/Artist.jsx")); // 歌手
-const Album = lazy(() => import("../views/discover/album/Album.jsx")); // 新碟上架
+const Toplist = lazy(() => import("../views/toplist/Toplist.jsx")); // 排行榜
+const Playlist = lazy(() => import("../views/playlist/Playlist.jsx")); // 歌单
+const Djradio = lazy(() => import("../views/djradio/Djradio.jsx")); // 主播电台
+const Artist = lazy(() => import("../views/artist/Artist.jsx")); // 歌手
+const Album = lazy(() => import("../views/album/Album.jsx")); // 新碟上架
 
 export default [
   {

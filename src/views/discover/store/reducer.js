@@ -1,9 +1,9 @@
 import * as actionTypes from "./actionTypes";
-// import { fromJS } from "immutable"; // 这里用到 fromJS 把 JS 数据结构转化成 immutable 数据结构
 
 const defaultState = {
   bannerList: [],
   hotCommendList: [],
+  newDiscShelfList: []
 };
 
 export default (state = defaultState, action) => {
@@ -14,7 +14,9 @@ export default (state = defaultState, action) => {
 
     case actionTypes.CHANGE_HOT_COMMEND:
       return Object.assign({}, state, { hotCommendList: payload });
-
+   
+    case actionTypes.CHANGE_NEW_DISC_SHELF:
+      return Object.assign({}, state, { newDiscShelfList: payload });
 
     default:
       return state;

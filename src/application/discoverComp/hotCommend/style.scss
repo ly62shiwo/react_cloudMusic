@@ -1,0 +1,35 @@
+.hotNav {
+  border-bottom: 2px solid #c10d0c;
+  height: 33px;
+  line-height: 33px;
+  .goCommend {
+    font-size: 20px;
+    color: black;
+  }
+  .goMore {
+    float: right;
+    color: #666;
+    font-size: 12px;
+  }
+}
+.hotCommendCard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 10px;
+
+  .picture {
+    width: 140px;
+    height: 204px;
+    line-height: 1.4;
+    img {
+      width: 140px;
+      height: 140px;
+    }
+    a {
+      color: black;
+      font-size: 14px;
+    }
+  }
+}

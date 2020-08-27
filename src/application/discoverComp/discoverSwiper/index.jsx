@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "swiper/dist/css/swiper.css";
 import Swiper from "swiper";
-import "./DiscoverSwiper.scss";
+import "./style.scss";
 
 function DiscoverSwiper(props) {
-  const [sliderSwiper, setSliderSwiper] = useState(null);
+  
   const { bannerList } = props;
+  const [sliderSwiper, setSliderSwiper] = useState(null);
+  const [bgiSwiper, setBgiSwiper] = useState([]);
 
   useEffect(() => {
     if (bannerList.length && !sliderSwiper) {
@@ -18,35 +20,47 @@ function DiscoverSwiper(props) {
           el: ".swiper-pagination",
           type: "bullets",
         },
+        effect: "fade",
         // 前进后退
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
+        // 事件
+        on: {
+          slideChangeTransitionStart: function () {
+            setBgiSwiper(bannerList[this.realIndex]);
+          },
+        },
       });
+
       setSliderSwiper(newSliderSwiper);
     }
   }, [bannerList.length, sliderSwiper]);
 
   return (
-    <div className='banner'>
+    <div className='disSwi'>
+      <div
+        className='blurred-background'
+        style={{
+          backgroundImage: `url(${bgiSwiper.imageUrl})`,
+        }}
+      ></div>
       <div className='swiper wrap'>
         <div className='swiper-container'>
           <div className='swiper-wrapper'>
-            {bannerList.map((slider,index) => {
+            {bannerList.map((slider, index) => {
               return (
                 <div className='swiper-slide' key={index}>
-                  {/* <a href={slider.url}> */}
+                  <a href={slider.url}>
                   <img src={slider.imageUrl} alt='推荐' />
-                  {/* </a> */}
+                  </a>
                 </div>
               );
             })}
           </div>
           <div className='swiper-pagination'></div>
         </div>
-        {/* <div className='swiper-button-next'></div>
-          <div className='swiper-button-prev'></div> */}
         <div className='download'>
           <Link className='btn' to='/download'></Link>
         </div>
@@ -55,4 +69,4 @@ function DiscoverSwiper(props) {
   );
 }
 
-export default DiscoverSwiper;
+export default (React.memo(DiscoverSwiper));
