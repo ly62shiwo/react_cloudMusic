@@ -12,11 +12,67 @@
     font-size: 12px;
   }
 }
-
+// 新碟轮播 
 .inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
   height: 184px;
-  padding-left: 16px;
   background: #f5f5f5;
   border: 1px solid #d3d3d3;
+  box-sizing: border-box;
   margin: 20px 0;
+
+  .swiper-newDiscShelf {
+    overflow: hidden;
+    margin: 0 20px;
+    line-height: 1.4;
+
+    .swiper-slide {
+      font-size: 12px;
+      .imgBgc {
+        width: 116px;
+        height: 100px;
+        background: url(../../../assets/coverall.png) 0 -570px;
+      }
+      img {
+        box-shadow: 0 3px 5px #888888;
+      }
+      .songName {
+        width: 100px;
+        display: block;
+        margin-top: 6px;
+        color: #000;
+        text-decoration: #000;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      
+      .name {
+        width: 100px;
+        display: block;
+        color: #666;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      a:hover {
+        border-bottom: 1px solid #000;
+      }
+    }
+  }
+  .swiper-button-prev {
+    left: 0;
+    width: 17px;
+    height: 17px;
+    background: url(../../../assets/index.png) -260px -77px;
+  }
+  .swiper-button-next {
+    right: 0;
+    width: 17px;
+    height: 17px;
+    background: url(../../../assets/index.png) -302px -77px;
+  }
 }

@@ -18,6 +18,8 @@ const Djradio = lazy(() => import("../views/djradio/Djradio.jsx")); // 主播电
 const Artist = lazy(() => import("../views/artist/Artist.jsx")); // 歌手
 const Album = lazy(() => import("../views/album/Album.jsx")); // 新碟上架
 
+const AlbumDetails = lazy(() => import("../views/album/albumDetails/albumDetails.jsx")); // 新碟上架
+
 export default [
   {
     path: "/",
@@ -57,6 +59,11 @@ export default [
         path: "/discover/album",
         exact: true,
         component: SuspenseComponent(Album),
+      },
+      {
+        path: "/album",
+        exact: true,
+        component: SuspenseComponent(AlbumDetails),
       },
     ],
   },

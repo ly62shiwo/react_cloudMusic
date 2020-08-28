@@ -1,9 +1,9 @@
 .disSwi {
   position: relative;
+  box-sizing: border-box;
   overflow: hidden;
   height: 285px;
   width: 100%;
-
   .blurred-background {
     position: absolute;
     width: 100%;
@@ -14,10 +14,11 @@
   }
 
   .swiper {
-    position: relative;
+    display: flex;
+    justify-content: center;
     .swiper-container {
-      float: left;
       width: 730px;
+      margin: 0;
       .swiper-pagination {
         .swiper-pagination-bullet {
           width: 6px;
@@ -36,10 +37,8 @@
       }
     }
     .download {
-      position: absolute;
-      top: 0;
+      position: relative;
       z-index: 10;
-      right: 120px;
       width: 251px;
       height: 285px;
       background: url(../../../assets/download.png) no-repeat 0 0;

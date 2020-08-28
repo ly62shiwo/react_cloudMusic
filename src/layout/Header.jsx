@@ -14,7 +14,7 @@ function Header(props) {
       return setSelect('discover')
     }
 
-  });
+  },[props.location.pathname]);
 
   return (
     <div>

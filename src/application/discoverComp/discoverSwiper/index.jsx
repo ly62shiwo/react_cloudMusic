@@ -21,11 +21,6 @@ function DiscoverSwiper(props) {
           type: "bullets",
         },
         effect: "fade",
-        // 前进后退
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
         // 事件
         on: {
           slideChangeTransitionStart: function () {
@@ -36,7 +31,7 @@ function DiscoverSwiper(props) {
 
       setSliderSwiper(newSliderSwiper);
     }
-  }, [bannerList.length, sliderSwiper]);
+  }, [bannerList, sliderSwiper]);
 
   return (
     <div className='disSwi'>

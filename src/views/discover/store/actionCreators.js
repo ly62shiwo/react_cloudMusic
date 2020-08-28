@@ -40,7 +40,6 @@ export const getHotCommendList = () => {
 export const getNewDiscShelfList = () => {
   return dispatch => {
     getNewDiscShelfRequest().then(data => {
-      console.log(data);
       dispatch (changeNewDiscShelfRequest (data.monthData));
     }).catch (() => {
       console.log ("新碟上架数据传输错误");

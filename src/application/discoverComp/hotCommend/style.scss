@@ -1,35 +1,59 @@
-.hotNav {
-  border-bottom: 2px solid #c10d0c;
-  height: 33px;
-  line-height: 33px;
-  .goCommend {
-    font-size: 20px;
-    color: black;
-  }
-  .goMore {
-    float: right;
-    color: #666;
-    font-size: 12px;
-  }
-}
-.hotCommendCard {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 100%;
-  padding-top: 10px;
-
-  .picture {
-    width: 140px;
-    height: 204px;
-    line-height: 1.4;
-    img {
-      width: 140px;
-      height: 140px;
-    }
-    a {
+.hotCommend {
+  width: 730px;
+  background: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+  .hotNav {
+    border-bottom: 2px solid #c10d0c;
+    height: 33px;
+    line-height: 33px;
+    .goCommend {
+      font-size: 20px;
       color: black;
-      font-size: 14px;
+    }
+    .goMore {
+      float: right;
+      color: #666;
+      font-size: 12px;
+    }
+  }
+  .hotCommendCard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 10px;
+    .picture {
+      width: 140px;
+      height: 204px;
+      position: relative;
+      line-height: 1.2;
+      img {
+        width: 140px;
+        height: 140px;
+        box-shadow: 1px 2px 3px #383838;
+      }
+      a {
+        color: black;
+        font-size: 14px;
+      }
+      .commendName {
+        a:hover {
+          border-bottom: 1px solid #000;
+        }
+      }
+      .playCount {
+        position: absolute;
+        bottom: 64px;
+        right: 0;
+        width: 100%;
+        height: 20px;
+        line-height: 20px;
+        color: #ccc;
+        font-size: 14px;
+        background-position: 0 -537px;
+        background-color: rgba(0, 0, 0, 0.7);
+      }
     }
   }
 }
