@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { getCount } from "@/config/utils";
 import "./style.scss";
-function index(props) {
-  console.log(props);
+function HotCommend(props) {
+  // console.log(props);
   const { hotCommendList } = props;
   return (
     <div style={{ width: 980, margin: "0 auto" }}>
@@ -36,4 +36,4 @@ function index(props) {
   );
 }
 
-export default index;
+export default HotCommend;

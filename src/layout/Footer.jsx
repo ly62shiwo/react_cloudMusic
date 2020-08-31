@@ -3,7 +3,7 @@ import './footer.scss'
 function Footer() {
     return (
         <div className='footer'>
-            后厂村某砖厂搬砖
+            村搬砖 ©-2020
         </div>
     )
 }

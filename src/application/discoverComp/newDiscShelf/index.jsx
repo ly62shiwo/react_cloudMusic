@@ -4,9 +4,9 @@ import "swiper/dist/css/swiper.css";
 import Swiper from "swiper";
 import "./style.scss";
 
-function Index(props) {
+function NewDiscShelf(props) {
   const { newDiscShelfList } = props;
-  console.log(newDiscShelfList);
+  // console.log(newDiscShelfList);
 
   const [newDiscSwiper, setNewDiscSwiper] = useState(null);
 
@@ -62,8 +62,11 @@ function Index(props) {
                         />
                       </Link>
                     </div>
-                    <Link className='songName'>{item.name}</Link>
-                    <Link className='name'>{item.artist.name}</Link>
+                    <div className='newDiscName'>
+                      <Link className='songName'>{item.name}</Link>
+                      <br/>
+                      <Link className='name'>{item.artist.name}</Link>
+                    </div>
                   </div>
                 );
               })}
@@ -77,4 +80,4 @@ function Index(props) {
   );
 }
 
-export default Index;
+export default NewDiscShelf;

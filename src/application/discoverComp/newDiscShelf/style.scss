@@ -8,11 +8,10 @@
   }
   .goMore {
     float: right;
-    color: #666;
     font-size: 12px;
   }
 }
-// 新碟轮播 
+// 新碟轮播
 .inner {
   display: flex;
   justify-content: center;
@@ -27,8 +26,7 @@
   .swiper-newDiscShelf {
     overflow: hidden;
     margin: 0 20px;
-    line-height: 1.4;
-
+    line-height: 1.2;
     .swiper-slide {
       font-size: 12px;
       .imgBgc {
@@ -39,27 +37,31 @@
       img {
         box-shadow: 0 3px 5px #888888;
       }
-      .songName {
-        width: 100px;
-        display: block;
-        margin-top: 6px;
-        color: #000;
-        text-decoration: #000;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      
-      .name {
-        width: 100px;
-        display: block;
-        color: #666;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      a:hover {
-        border-bottom: 1px solid #000;
+      .newDiscName {
+        a {
+          color: black;
+          font-size: 14px;
+        }
+        a:hover {
+          border-bottom: 1px solid #000;
+        }
+        .songName {
+          max-width: 100px;
+          display: inline-block;
+          margin-top: 6px;
+          color: #000;
+          text-decoration: #000;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .name {
+          max-width: 100px;
+          display: inline-block;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
       }
     }
   }

@@ -11,3 +11,13 @@ export const getHotCommendRequest = (data) => {
 export const getNewDiscShelfRequest = () => {
   return axiosInstance.get(`/top/album?&limit=10`);
 };
+
+// 榜单
+export const getLeaderboardRequest = () => {
+  return axiosInstance.get(`/toplist`);
+};
+
+// 热门歌手
+export const getHotSingerRequest = (num) => {
+  return axiosInstance.get(`/top/artists?&limit=${num}`);
+};
