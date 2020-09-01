@@ -4,7 +4,7 @@ import { navMenus, navMenusTwo } from "@/config/navMenus.js";
 import "./header.scss";
 
 function Header(props) {
-  console.log(props);
+  // console.log(props);
   const [select, setSelect] = useState("discover");
 
   useEffect(() => {
@@ -13,11 +13,10 @@ function Header(props) {
     } else if (props.location.pathname === '/discover') {
       return setSelect('discover')
     }
-
   },[props.location.pathname]);
 
   return (
-    <div>
+    <div className='all'>
       {/* nav导航 */}
       <div className='nav'>
         <div className='wrap'>
@@ -37,7 +36,6 @@ function Header(props) {
                   <Link
                     className={select === item.key ? "action" : null}
                     to={item.path}
-                    // target={item.target}
                   >
                     {item.title}
                   </Link>
@@ -64,7 +62,7 @@ function Header(props) {
           </ul>
         </div>
       </div>
-
+      {/* 页面导航 */}
       {select === "discover"  ? (
         <div className='navBar'>
           <ul className='navUl wrap'>

@@ -1,13 +1,19 @@
-import React, { useEffect } from "react";
+/**
+ * 歌单详情页
+ */
+import React, { useState, useEffect } from "react";
 
 function AlbumDetails(props) {
-  console.log(props);
-  useEffect(() => {
-    let id = props.location.search.slice(3);
-    console.log(id);
-  });
+  // console.log(props);
+  const {location} = props
+  const [id, setId] = useState(null);
 
-  return <div>11111</div>;
+  useEffect(() => {
+    let id = location.search.slice(4);
+    setId(id);
+  },[location.search]);
+  
+  return <div>albumDetails {id}</div>;
 }
 
-export default AlbumDetails;
+export default React.memo(AlbumDetails);

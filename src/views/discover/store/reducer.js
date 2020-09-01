@@ -5,7 +5,8 @@ const defaultState = {
   hotCommendList: [],
   newDiscShelfList: [],
   leaderboardList: [],
-  hotSingerList: []
+  hotSingerList: [],
+  hotAnchorList: []
 };
 
 export default (state = defaultState, action) => {
@@ -26,6 +27,8 @@ export default (state = defaultState, action) => {
     case actionTypes.CHANGE_HOT_SINGER:
       return Object.assign({}, state, { hotSingerList: payload });
 
+    case actionTypes.CHANGE_HOT_ANCHOR:
+      return Object.assign({}, state, { hotAnchorList: payload });
 
     default:
       return state;

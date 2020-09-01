@@ -63,9 +63,9 @@ function NewDiscShelf(props) {
                       </Link>
                     </div>
                     <div className='newDiscName'>
-                      <Link className='songName'>{item.name}</Link>
+                      <Link to={`/album?id=${item.id}`} className='songName'>{item.name}</Link>
                       <br/>
-                      <Link className='name'>{item.artist.name}</Link>
+                      <Link to={`/artist?id=${item.artist.id}`} className='name'>{item.artist.name}</Link>
                     </div>
                   </div>
                 );

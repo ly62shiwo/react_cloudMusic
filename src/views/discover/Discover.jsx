@@ -15,14 +15,16 @@ function Discover(props) {
     hotCommendList,
     newDiscShelfList,
     leaderboardList,
-    hotSingerList
+    hotSingerList,
+    hotAnchorList,
   } = props; // 数据
   const {
     getBannerDataDispatch,
     getHotCommendDispatch,
     getNewDiscShelfDispatch,
     getLeaderboardDispatch,
-    getHotSingerDispatch
+    getHotSingerDispatch,
+    getHotAnchorDispatch,
   } = props; // dispatch
 
   useEffect(() => {
@@ -30,21 +32,25 @@ function Discover(props) {
     getHotCommendDispatch();
     getNewDiscShelfDispatch();
     getLeaderboardDispatch();
-    getHotSingerDispatch(5)
+    getHotSingerDispatch(5);
+    getHotAnchorDispatch(5);
   }, []);
 
   return (
     <div>
       <DiscoverSwiper bannerList={bannerList} />
 
-      <div className='wrap'  style={{ position: "relative" }}>
+      <div className='wrap' style={{ position: "relative" }}>
         <HotCommend hotCommendList={hotCommendList} />
 
         <NewDiscShelf newDiscShelfList={newDiscShelfList} />
 
         <Leaderboard leaderboardList={leaderboardList} />
 
-        <RightComp hotSingerList={hotSingerList} />
+        <RightComp
+          hotSingerList={hotSingerList}
+          hotAnchorList={hotAnchorList}
+        />
       </div>
     </div>
   );
@@ -58,7 +64,8 @@ const mapStateToProps = (state) => {
     hotCommendList: state.discover.hotCommendList,
     newDiscShelfList: state.discover.newDiscShelfList,
     leaderboardList: state.discover.leaderboardList,
-    hotSingerList: state.discover.hotSingerList
+    hotSingerList: state.discover.hotSingerList,
+    hotAnchorList: state.discover.hotAnchorList,
   };
 };
 // 映射dispatch到props上
@@ -79,7 +86,9 @@ const mapDispatchToProps = (dispatch) => {
     getHotSingerDispatch(num) {
       dispatch(actionType.getHotSingerList(num));
     },
-    
+    getHotAnchorDispatch(num) {
+      dispatch(actionType.getHotAnchorList(num));
+    },
   };
 };
 
