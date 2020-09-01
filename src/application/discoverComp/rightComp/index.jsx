@@ -1,9 +1,12 @@
+/**
+ * 首页右侧
+ */
 import React from "react";
 import { Link } from "react-router-dom";
 import "./style.scss";
 
 function RightComp(props) {
-  console.log(props);
+  // console.log(props,'RightComp');
   const { hotSingerList, hotAnchorList } = props;
   return (
     <div className='rightCard'>

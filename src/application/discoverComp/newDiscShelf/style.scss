@@ -2,6 +2,13 @@
   border-bottom: 2px solid #c10d0c;
   height: 33px;
   line-height: 33px;
+  .hotNavIcon {
+    display: block;
+    float: left;
+    width: 30px;
+    height: 35px;
+    background: url(../../../assets/index.png) -235px -155px;
+  }
   .goCommend {
     font-size: 20px;
     color: black;
@@ -40,7 +47,6 @@
       .newDiscName {
         a {
           color: black;
-          font-size: 14px;
         }
         a:hover {
           border-bottom: 1px solid #000;
@@ -48,7 +54,7 @@
         .songName {
           max-width: 100px;
           display: inline-block;
-          margin-top: 6px;
+          margin-top: 8px;
           color: #000;
           text-decoration: #000;
           white-space: nowrap;
@@ -56,8 +62,10 @@
           text-overflow: ellipsis;
         }
         .name {
-          max-width: 100px;
           display: inline-block;
+          color: #666;
+          font-size: 12px;
+          max-width: 100px;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;

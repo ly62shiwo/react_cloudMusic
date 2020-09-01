@@ -7,6 +7,13 @@
     border-bottom: 2px solid #c10d0c;
     height: 33px;
     line-height: 33px;
+    .hotNavIcon {
+      display: block;
+      float: left;
+      width: 30px;
+      height: 35px;
+      background: url(../../../assets/index.png) -235px -155px;
+    }
     .goToplist {
       font-size: 20px;
       color: black;

@@ -8,12 +8,12 @@ function Header(props) {
   const [select, setSelect] = useState("discover");
 
   useEffect(() => {
-    if(props.location.pathname === '/download') {
-      return setSelect('download')
-    } else if (props.location.pathname === '/discover') {
-      return setSelect('discover')
+    if (props.location.pathname === "/download") {
+      return setSelect("download");
+    } else if (props.location.pathname === "/discover") {
+      return setSelect("discover");
     }
-  },[props.location.pathname]);
+  }, [props.location.pathname]);
 
   return (
     <div className='all'>
@@ -36,10 +36,13 @@ function Header(props) {
                   <Link
                     className={select === item.key ? "action" : null}
                     to={item.path}
+                    // target="_blank"
                   >
                     {item.title}
                   </Link>
-                  <span className={select === item.key ? "sanjiao" : null}></span>
+                  <span
+                    className={select === item.key ? "sanjiao" : null}
+                  ></span>
                 </li>
               ) : (
                 <li
@@ -55,6 +58,7 @@ function Header(props) {
                   >
                     {item.title}
                   </Link>
+                  {item.title === "下载客户端" ? (<span className='hotIcon'></span>) : null}
                   <div className={select === item.key ? "sanjiao" : null}></div>
                 </li>
               );
@@ -63,7 +67,7 @@ function Header(props) {
         </div>
       </div>
       {/* 页面导航 */}
-      {select === "discover"  ? (
+      {select === "discover" ? (
         <div className='navBar'>
           <ul className='navUl wrap'>
             {navMenusTwo.map((item) => {

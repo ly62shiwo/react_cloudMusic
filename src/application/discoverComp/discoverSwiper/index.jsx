@@ -1,3 +1,6 @@
+/**
+ * 轮播图
+ */
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "swiper/dist/css/swiper.css";

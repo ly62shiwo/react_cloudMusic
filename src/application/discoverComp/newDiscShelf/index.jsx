@@ -1,3 +1,6 @@
+/**
+ * 新碟上架
+ */
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "swiper/dist/css/swiper.css";
@@ -39,6 +42,7 @@ function NewDiscShelf(props) {
         }}
       >
         <div className='hotNav'>
+          <span className='hotNavIcon'></span>
           <Link to='discover/album' className='goCommend'>
             新碟上架
           </Link>
@@ -63,9 +67,16 @@ function NewDiscShelf(props) {
                       </Link>
                     </div>
                     <div className='newDiscName'>
-                      <Link to={`/album?id=${item.id}`} className='songName'>{item.name}</Link>
-                      <br/>
-                      <Link to={`/artist?id=${item.artist.id}`} className='name'>{item.artist.name}</Link>
+                      <Link to={`/album?id=${item.id}`} className='songName'>
+                        {item.name}
+                      </Link>
+                      <br />
+                      <Link
+                        to={`/artist?id=${item.artist.id}`}
+                        className='name'
+                      >
+                        {item.artist.name}
+                      </Link>
                     </div>
                   </div>
                 );
@@ -80,4 +91,4 @@ function NewDiscShelf(props) {
   );
 }
 
-export default NewDiscShelf;
+export default React.memo(NewDiscShelf);

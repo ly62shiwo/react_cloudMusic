@@ -57,8 +57,6 @@ function Discover(props) {
 }
 // 映射Redux全局的state到组件的props上
 const mapStateToProps = (state) => {
-  // let {bannerList,hotCommendList,newDiscShelfList,LeaderboardList} = state.discover
-
   return {
     bannerList: state.discover.bannerList,
     hotCommendList: state.discover.hotCommendList,

@@ -49,6 +49,15 @@
       }
     }
   }
+  .hotIcon {
+    position: absolute;
+    top: 20px;
+    right: -25px;
+    display: block;
+    width: 30px;
+    height: 15px;
+    background: url(../assets/topbar.png) -192px 0;
+  }
 }
 
 .navBar {
