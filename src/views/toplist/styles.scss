@@ -1,0 +1,110 @@
+.topList {
+  display: flex;
+  width: 982px;
+  margin: 0 auto;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  .leftDiv {
+    width: 240px;
+    .bgc {
+      background-color: #e6e6e6;
+    }
+    h2 {
+      margin-top: 20px;
+      padding: 20px 10px 12px 15px;
+      font-size: 14px;
+      font-weight: 900;
+      color: #000;
+    }
+    li {
+      position: relative;
+      padding: 10px 0 10px 20px;
+      font-size: 12px;
+      a {
+        display: flex;
+        color: #000;
+        p {
+          margin-left: 10px;
+        }
+      }
+      .update {
+        position: absolute;
+        left: 70px;
+        bottom: 16%;
+        color: #666;
+      }
+    }
+  }
+  .rightDiv {
+    width: 739px;
+    border-left: 1px solid #ccc;
+    background-color: #fff;
+    // 榜头部
+    .synopsis {
+      display: flex;
+      padding: 40px;
+      img {
+        padding: 3px;
+        border: 1px solid #ccc;
+      }
+      .mark {
+        position: absolute;
+        display: block;
+        width: 155px;
+        height: 155px;
+        background: url(../../assets/coverall.png) 0 -145px;
+      }
+      .rightSynopsis {
+        margin-left: 30px;
+        margin-top: 15px;
+        h2 {
+          font-size: 20px;
+          margin-bottom: 15px;
+        }
+        .updateTime {
+          display: flex;
+          font-size: 12px;
+          color: #666;
+          line-height: 15px;
+          .icon {
+            display: block;
+            width: 15px;
+            height: 15px;
+            padding-right: 5px;
+            background: url(../../assets/icon.png) -70px -140px;
+          }
+        }
+      }
+    }
+
+    // 歌曲列表
+    .songList {
+      margin: 0 40px;
+      height: 1000px;
+      // background-color: #ccc;
+      .title {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        height: 33px;
+        line-height: 33px;
+        font-size: 12px;
+        color: #666;
+        border-bottom: 2px solid #c20c0c;
+        h3 {
+          font-size: 20px;
+          color: #000;
+        }
+        p {
+          position: absolute;
+          left: 120px;
+        }
+        strong {
+          color: #c20c0c;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

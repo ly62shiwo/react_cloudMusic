@@ -23,3 +23,7 @@ export const getHotSingerRequest = (num) => {
 export const getHotAnchorRequest = (num) => {
   return axiosInstance.get(`/dj/toplist/popular?limit=${num}`);
 };
+// 歌单详情
+export const getPlayListDetailRequest = (id) => {
+  return axiosInstance.get(`/playlist/detail?id=${id}`);
+};
