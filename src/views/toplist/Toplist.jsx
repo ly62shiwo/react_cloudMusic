@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import {singerName} from '../../config/utils'
 import * as actionType from "./store/actionCreators";
 import "./styles.scss";
 
@@ -11,17 +12,55 @@ function Toplist(props) {
 
   const [select, setSelect] = useState(19723756);
   const [updateTimeName, setUpdateTimeName] = useState("每天更新");
-  const [tracksList, setTracksList] = useState();
-  const { tracks } = playListDetail;
-
-  const aaa = () => {
-    if (playListDetail) return console.log(typeof tracks, 1111);
-  };
 
   useEffect(() => {
     getLeaderboardDispatch();
     getPlayLisDetailDispatch(select);
   }, []);
+
+  const songList = () => {
+    let arr = [];
+    Object.assign(arr, playListDetail.tracks);
+    // console.log(arr);
+    return (
+      <div>
+        <table className='m-table'>
+          <thead>
+            <tr>
+              <th style={{ flex: 1, borderLeft: 0 }}></th>
+              <th style={{ flex: 5 }}>标题</th>
+              <th style={{ flex: 2 }}>时长</th>
+              <th style={{ flex: 3 }}>歌手</th>
+            </tr>
+          </thead>
+          <tbody>
+            {arr.map((item, index) => {
+              return (
+                <tr key={item.id}>
+                  <td style={{ flex: 1 }}>{index + 1}</td>
+                  {index < 3 ? (
+                    <td style={{ flex: 5 }}>
+                      {/* <Link to={`song?id=${}`}> */}
+                        <img
+                          src={item.al.picUrl + "?param=50y50&quality=100"}
+                          alt=''
+                        />
+                      {/* </Link> */}
+                      {item.name}
+                    </td>
+                  ) : (
+                    <td style={{ flex: 5 }}>{item.name}</td>
+                  )}
+                  <td style={{ flex: 2 }}></td>
+                  <td style={{ flex: 3 }}> {singerName('artist',item.ar)} </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    );
+  };
 
   return (
     <div className='topList'>
@@ -79,16 +118,12 @@ function Toplist(props) {
         <div className='songList'>
           <div className='title'>
             <h3>歌曲列表</h3>
-            <p>{aaa()}首歌</p>
+            <p>100首歌</p>
             <span>
               播放: <strong>{playListDetail.playCount}</strong> 次
             </span>
           </div>
-
-          <div>
-
-          </div>
-          
+          {songList()}
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@ import * as actionTypes from "./actionTypes";
 
 const defaultState = {
   leaderBoardList: [],
-  playListDetail: []
+  playListDetail: [],
 };
 
 export default (state = defaultState, action) => {
