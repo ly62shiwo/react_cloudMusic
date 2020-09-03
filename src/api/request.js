@@ -4,7 +4,7 @@ export const getBannerRequest = () => {
   return axiosInstance.get("/banner?type=0");
 };
 // 热门推荐
-export const getHotCommendRequest = (data) => {
+export const getHotCommendRequest = (data) => {  // ?limit=10&offset=1&order=new/hot&cat:tag--华语，欧美
   return axiosInstance.get(`/top/playlist?${data}`);
 };
 // 新碟上架
@@ -16,8 +16,8 @@ export const getLeaderboardRequest = () => {
   return axiosInstance.get(`/toplist`);
 };
 // 热门歌手
-export const getHotSingerRequest = (num) => {
-  return axiosInstance.get(`/top/artists?&limit=${num}`);
+export const getHotSingerRequest = (count, num) => {
+  return axiosInstance.get(`/top/artists?offset=${count}&limit=${num}`);
 };
 // 热门主播榜
 export const getHotAnchorRequest = (num) => {

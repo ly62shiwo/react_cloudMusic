@@ -10,7 +10,7 @@ function Home(props) {
         <div>
             <Header location ={location}/>
             {renderRoutes(route.routes)}
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import {singerName} from '../../config/utils'
 import * as actionType from "./store/actionCreators";
 import "./styles.scss";
 
@@ -23,43 +22,101 @@ function Toplist(props) {
     Object.assign(arr, playListDetail.tracks);
     // console.log(arr);
     return (
-      <div>
-        <table className='m-table'>
-          <thead>
-            <tr>
-              <th style={{ flex: 1, borderLeft: 0 }}></th>
-              <th style={{ flex: 5 }}>标题</th>
-              <th style={{ flex: 2 }}>时长</th>
-              <th style={{ flex: 3 }}>歌手</th>
-            </tr>
-          </thead>
-          <tbody>
-            {arr.map((item, index) => {
-              return (
-                <tr key={item.id}>
-                  <td style={{ flex: 1 }}>{index + 1}</td>
-                  {index < 3 ? (
-                    <td style={{ flex: 5 }}>
-                      {/* <Link to={`song?id=${}`}> */}
-                        <img
-                          src={item.al.picUrl + "?param=50y50&quality=100"}
-                          alt=''
-                        />
-                      {/* </Link> */}
-                      {item.name}
-                    </td>
-                  ) : (
-                    <td style={{ flex: 5 }}>{item.name}</td>
-                  )}
-                  <td style={{ flex: 2 }}></td>
-                  <td style={{ flex: 3 }}> {singerName('artist',item.ar)} </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+      <div className='songList'>
+        <div className='title'>
+          <h3>歌曲列表</h3>
+          <p>{arr.length}首歌</p>
+          <span>
+            播放: <strong>{playListDetail.playCount}</strong> 次
+          </span>
+        </div>
+        {/* 歌曲列表 */}
+        <div style={{width: 670}}>
+          <table className='m-table'>
+            <thead>
+              <tr>
+                <th style={{ flex: 1, borderLeft: 0 }}></th>
+                <th style={{ flex: 5 }}>标题</th>
+                <th style={{ flex: 2 }}>时长</th>
+                <th style={{ flex: 3 }}>歌手</th>
+              </tr>
+            </thead>
+            <tbody>
+              {arr.map((item, index) => {
+                {
+                  if (index < 3) {
+                    return (
+                      <tr
+                        key={item.id}
+                        className={(index + 1) % 2 === 0 ? "odd" : ""}
+                        style={{ height: 70 }}
+                      >
+                        <td style={{ flex: 1 }}>{index + 1}</td>
+                        <td style={{ flex: 5 }}>
+                          <div className='topImg'>
+                            <Link
+                              style={{ border: 0 }}
+                              to={`song?id=${item.id}`}
+                            >
+                              <img
+                                src={
+                                  item.al.picUrl + "?param=50y50&quality=100"
+                                }
+                                alt=''
+                              />
+                            </Link>
+                          </div>
+                          <div className='topSinger'>
+                            <span className='playicon'></span>
+                            <Link to={`song?id=${item.id}`}>{item.name}</Link>
+                          </div>
+                        </td>
+                        <td style={{ flex: 2 }}>03:00</td>
+                        <td style={{ flex: 3 }}> {singerName(item.ar)} </td>
+                      </tr>
+                    );
+                  } else {
+                    return (
+                      <tr
+                        key={item.id}
+                        className={(index + 1) % 2 === 0 ? "odd" : ""}
+                        style={{ height: 30 }}
+                      >
+                        <td style={{ flex: 1 }}>{index + 1}</td>
+                        <td style={{ flex: 5 }}>
+                          <span className='playicon'></span>
+                          <Link to={`song?id=${item.id}`}>{item.name}</Link>
+                          <span style={{ color: "#666", paddingLeft: 10 }}>
+                            {item.alia}
+                          </span>
+                        </td>
+                        <td style={{ flex: 2 }}>03:00</td>
+                        <td style={{ flex: 3 }}> {singerName(item.ar)} </td>
+                      </tr>
+                    );
+                  }
+                }
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
     );
+  };
+  // 列表歌手名处理
+  const singerName = (item) => {
+    if (item.length > 1) {
+      let toSinger = item.map((items, index) => {
+        return (
+          <span key={index}>
+            <Link to={`artist?id=${items.id}`}>{items.name}</Link>/
+          </span>
+        );
+      });
+      return toSinger;
+    } else {
+      return <Link to={`artist?id=${item[0].id}`}>{item[0].name}</Link>;
+    }
   };
 
   return (
@@ -115,16 +172,7 @@ function Toplist(props) {
           </div>
         </div>
         {/* 右侧歌曲列表 */}
-        <div className='songList'>
-          <div className='title'>
-            <h3>歌曲列表</h3>
-            <p>100首歌</p>
-            <span>
-              播放: <strong>{playListDetail.playCount}</strong> 次
-            </span>
-          </div>
-          {songList()}
-        </div>
+        {songList()}
       </div>
     </div>
   );

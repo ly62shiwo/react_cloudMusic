@@ -89,9 +89,9 @@ export const getLeaderboardList = () => {
   };
 };
 
-export const getHotSingerList = (num) => {
+export const getHotSingerList = (count,num) => {
   return (dispatch) => {
-    getHotSingerRequest(num)
+    getHotSingerRequest(count,num)
       .then((data) => {
         // console.log(data);
         dispatch(changeHotSingerRequest(data.artists));

@@ -32,7 +32,7 @@ function Discover(props) {
     getHotCommendDispatch();
     getNewDiscShelfDispatch();
     getLeaderboardDispatch();
-    getHotSingerDispatch(5);
+    getHotSingerDispatch(0, 5);
     getHotAnchorDispatch(5);
   }, []);
 
@@ -81,8 +81,8 @@ const mapDispatchToProps = (dispatch) => {
     getLeaderboardDispatch() {
       dispatch(actionType.getLeaderboardList());
     },
-    getHotSingerDispatch(num) {
-      dispatch(actionType.getHotSingerList(num));
+    getHotSingerDispatch(count,num) {
+      dispatch(actionType.getHotSingerList(count,num));
     },
     getHotAnchorDispatch(num) {
       dispatch(actionType.getHotAnchorList(num));

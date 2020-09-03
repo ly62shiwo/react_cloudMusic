@@ -1,6 +1,3 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
 export const getCount = (count) => {
   if (count < 0) return;
   if (count < 10000) {
@@ -12,20 +9,3 @@ export const getCount = (count) => {
   }
 };
 
-export const singerName = (url, item) => {
-  console.log(item, "item");
-  if (item.length > 1) {
-    let toSinger = item.map((item) => {
-      console.log(item.id, item.name);
-      return (
-        <span>
-          <Link to={`${url}?id=${item.id}`}>{item.name}</Link> &nbsp;
-          {item.length === 0 ? "/" : null}
-        </span>
-      );
-    });
-    return toSinger;
-  } else {
-    return <Link to={`${url}?id=${item[0].id}`}>{item[0].name}</Link>;
-  }
-};
