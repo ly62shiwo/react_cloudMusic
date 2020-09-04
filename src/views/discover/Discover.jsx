@@ -34,6 +34,7 @@ function Discover(props) {
     getLeaderboardDispatch();
     getHotSingerDispatch(0, 5);
     getHotAnchorDispatch(5);
+     //eslint-disable-next-line
   }, []);
 
   return (

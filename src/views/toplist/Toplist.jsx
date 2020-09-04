@@ -1,22 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+//  import {} from '../../config/utils'
 import * as actionType from "./store/actionCreators";
 import "./styles.scss";
+import Loading from '.././../component/loading/index'
 
 function Toplist(props) {
-  console.log(props, "toplist");
   const { leaderBoardList, playListDetail } = props;
   const { getLeaderboardDispatch, getPlayLisDetailDispatch } = props; // dispatch
+  console.log(props, "toplist");
 
   const [select, setSelect] = useState(19723756);
   const [updateTimeName, setUpdateTimeName] = useState("每天更新");
 
   useEffect(() => {
     getLeaderboardDispatch();
-    getPlayLisDetailDispatch(select);
+    getPlayLisDetailDispatch(props.location.search.slice(4) || select);
+    window.scrollTo(0, 0);
+    //eslint-disable-next-line
   }, []);
 
+  // 列表
   const songList = () => {
     let arr = [];
     Object.assign(arr, playListDetail.tracks);
@@ -30,8 +35,7 @@ function Toplist(props) {
             播放: <strong>{playListDetail.playCount}</strong> 次
           </span>
         </div>
-        {/* 歌曲列表 */}
-        <div style={{width: 670}}>
+        <div style={{ width: 670 }}>
           <table className='m-table'>
             <thead>
               <tr>
@@ -43,58 +47,51 @@ function Toplist(props) {
             </thead>
             <tbody>
               {arr.map((item, index) => {
-                {
-                  if (index < 3) {
-                    return (
-                      <tr
-                        key={item.id}
-                        className={(index + 1) % 2 === 0 ? "odd" : ""}
-                        style={{ height: 70 }}
-                      >
-                        <td style={{ flex: 1 }}>{index + 1}</td>
-                        <td style={{ flex: 5 }}>
-                          <div className='topImg'>
-                            <Link
-                              style={{ border: 0 }}
-                              to={`song?id=${item.id}`}
-                            >
-                              <img
-                                src={
-                                  item.al.picUrl + "?param=50y50&quality=100"
-                                }
-                                alt=''
-                              />
-                            </Link>
-                          </div>
-                          <div className='topSinger'>
-                            <span className='playicon'></span>
-                            <Link to={`song?id=${item.id}`}>{item.name}</Link>
-                          </div>
-                        </td>
-                        <td style={{ flex: 2 }}>03:00</td>
-                        <td style={{ flex: 3 }}> {singerName(item.ar)} </td>
-                      </tr>
-                    );
-                  } else {
-                    return (
-                      <tr
-                        key={item.id}
-                        className={(index + 1) % 2 === 0 ? "odd" : ""}
-                        style={{ height: 30 }}
-                      >
-                        <td style={{ flex: 1 }}>{index + 1}</td>
-                        <td style={{ flex: 5 }}>
+                if (index < 3) {
+                  return (
+                    <tr
+                      key={item.id}
+                      className={(index + 1) % 2 === 0 ? "odd" : ""}
+                      style={{ height: 70 }}
+                    >
+                      <td style={{ flex: 1 }}>{index + 1}</td>
+                      <td style={{ flex: 5 }}>
+                        <div className='topImg'>
+                          <Link style={{ border: 0 }} to={`song?id=${item.id}`}>
+                            <img
+                              src={item.al.picUrl + "?param=50y50&quality=100"}
+                              alt=''
+                            />
+                          </Link>
+                        </div>
+                        <div className='topSinger'>
                           <span className='playicon'></span>
                           <Link to={`song?id=${item.id}`}>{item.name}</Link>
-                          <span style={{ color: "#666", paddingLeft: 10 }}>
-                            {item.alia}
-                          </span>
-                        </td>
-                        <td style={{ flex: 2 }}>03:00</td>
-                        <td style={{ flex: 3 }}> {singerName(item.ar)} </td>
-                      </tr>
-                    );
-                  }
+                        </div>
+                      </td>
+                      <td style={{ flex: 2 }}>03:00</td>
+                      <td style={{ flex: 3 }}> {singerName(item.ar)} </td>
+                    </tr>
+                  );
+                } else {
+                  return (
+                    <tr
+                      key={item.id}
+                      className={(index + 1) % 2 === 0 ? "odd" : ""}
+                      style={{ height: 30 }}
+                    >
+                      <td style={{ flex: 1 }}>{index + 1}</td>
+                      <td style={{ flex: 5 }}>
+                        <span className='playicon'></span>
+                        <Link to={`song?id=${item.id}`}>{item.name}</Link>
+                        <span style={{ color: "#666", paddingLeft: 10 }}>
+                          {item.alia}
+                        </span>
+                      </td>
+                      <td style={{ flex: 2 }}>03:00</td>
+                      <td style={{ flex: 3 }}> {singerName(item.ar)} </td>
+                    </tr>
+                  );
                 }
               })}
             </tbody>
@@ -122,6 +119,7 @@ function Toplist(props) {
   return (
     <div className='topList'>
       <div className='leftDiv'>
+
         <h2>云音乐特色榜</h2>
         <ul>
           {leaderBoardList.length
@@ -129,11 +127,12 @@ function Toplist(props) {
                 return (
                   <div key={item.id}>
                     <li
-                      className={select === item.id ? "bgc" : null}
+                      className={props.location.search.slice(4) == item.id ? "bgc" : null}
                       onClick={() => {
                         setSelect(item.id);
                         getPlayLisDetailDispatch(item.id);
                         setUpdateTimeName(item.updateFrequency);
+                        window.scrollTo(0, 0);
                       }}
                     >
                       <Link to={`/discover/toplist?id=${item.id}`}>
@@ -172,6 +171,7 @@ function Toplist(props) {
           </div>
         </div>
         {/* 右侧歌曲列表 */}
+        {/* <Loading /> */}
         {songList()}
       </div>
     </div>
@@ -196,7 +196,4 @@ const mapDispatchToProps = (dispatch) => {
     },
   };
 };
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(React.memo(Toplist));
+export default connect(mapStateToProps, mapDispatchToProps)(Toplist);

@@ -31,7 +31,8 @@ function HotCommend(props) {
                 <div className='playBgi'>
                   <span className='earphoneIcon'></span>
                   <span className='playCount'>{getCount(item.playCount)}</span>
-                  <a className='playIcon' onClick={()=> console.log(item.id)}></a>
+                  {/* 播放 */}
+                  <span className='playIcon' onClick={()=> console.log(item.id)}></span>
                 </div>
 
                 <div className='commendName'>

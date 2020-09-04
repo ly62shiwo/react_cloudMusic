@@ -30,11 +30,11 @@ export const getPlayLisDetailList = (id) => {
   return (dispatch) => {
     getPlayListDetailRequest(id)
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         dispatch(changePlayLisDetailRequest(data));
       })
       .catch(() => {
-        console.log("排行榜数据传输错误");
+        console.log("歌曲列表数据传输错误");
       });
   };
 };
