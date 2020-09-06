@@ -106,7 +106,10 @@ function Toplist(props) {
       let toSinger = item.map((items, index) => {
         return (
           <span key={index}>
-            <Link to={`artist?id=${items.id}`}>{items.name}</Link>/
+            <Link to={`artist?id=${items.id}`}>{items.name}</Link>
+            {
+              item.length - 1 === index ? null : '/'
+            }
           </span>
         );
       });
@@ -138,8 +141,8 @@ function Toplist(props) {
                       <Link to={`/discover/toplist?id=${item.id}`}>
                         <img src={item.coverImgUrl + "?param=40y40"} alt='' />
                         <p>{item.name}</p>
+                        <p className='update'>{item.updateFrequency}</p>
                       </Link>
-                      <p className='update'>{item.updateFrequency}</p>
                     </li>
                     {item.name === "云音乐热歌榜" ? (
                       <h2>云音乐特色榜</h2>
