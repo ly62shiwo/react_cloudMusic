@@ -1,1 +1,2 @@
 export const CHANGE_CATLIST_CATEGORY = "toplist/CHANGE_CATLIST_CATEGORY";
+export const CHANGE_HOT_COMMEND = "toplist/CHANGE_HOT_COMMEND";
