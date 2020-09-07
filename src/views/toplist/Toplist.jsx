@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-//  import {} from '../../config/utils'
 import * as actionType from "./store/actionCreators";
 import "./styles.scss";
-import Loading from '.././../component/loading/index'
 
 function Toplist(props) {
   const { leaderBoardList, playListDetail } = props;
@@ -107,9 +105,7 @@ function Toplist(props) {
         return (
           <span key={index}>
             <Link to={`artist?id=${items.id}`}>{items.name}</Link>
-            {
-              item.length - 1 === index ? null : '/'
-            }
+            {item.length - 1 === index ? null : "/"}
           </span>
         );
       });
@@ -122,7 +118,6 @@ function Toplist(props) {
   return (
     <div className='topList'>
       <div className='leftDiv'>
-
         <h2>云音乐特色榜</h2>
         <ul>
           {leaderBoardList.length
@@ -130,7 +125,7 @@ function Toplist(props) {
                 return (
                   <div key={item.id}>
                     <li
-                      className={props.location.search.slice(4) == item.id ? "bgc" : null}
+                      className={ Number(props.location.search.slice(4)) === item.id ? "bgc" : null }
                       onClick={() => {
                         setSelect(item.id);
                         getPlayLisDetailDispatch(item.id);
@@ -157,8 +152,10 @@ function Toplist(props) {
       <div className='rightDiv'>
         {/* 右侧榜顶部 */}
         <div className='synopsis'>
-          <img src={playListDetail.coverImgUrl + "?param=150y150"} alt='' />
-          <span className='mark'></span>
+          <div className='leftSynopsis'>
+            <img src={playListDetail.coverImgUrl + "?param=150y150"} alt='' />
+            <span className='mark'></span>
+          </div>
           <div className='rightSynopsis'>
             <h2>{playListDetail.name}</h2>
             <div className='updateTime'>
@@ -169,12 +166,10 @@ function Toplist(props) {
                 ({updateTimeName})
               </span>
             </div>
-
             <div>{/* 播放收藏 */}</div>
           </div>
         </div>
         {/* 右侧歌曲列表 */}
-        {/* <Loading /> */}
         {songList()}
       </div>
     </div>

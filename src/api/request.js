@@ -27,3 +27,7 @@ export const getHotAnchorRequest = (num) => {
 export const getPlayListDetailRequest = (id) => {
   return axiosInstance.get(`/playlist/detail?id=${id}`);
 };
+// 歌单分类
+export const getCatListCategoryRequest = () => {
+  return axiosInstance.get(`/playlist/catlist`);
+};

@@ -55,18 +55,25 @@
       display: flex;
       padding: 40px;
 
-      img {
-        padding: 3px;
-        border: 1px solid #ccc;
+      .leftSynopsis {
+        position: relative;
+        width: 160px;
+        height: 160px;
+        img {
+          padding: 3px;
+          border: 1px solid #ccc;
+        }
+
+        .mark {
+          position: absolute;
+          left: 0;
+          // display: block;
+          width: 155px;
+          height: 155px;
+          background: url(../../assets/coverall.png) 0 -145px;
+        }
       }
 
-      .mark {
-        position: absolute;
-        display: block;
-        width: 155px;
-        height: 155px;
-        background: url(../../assets/coverall.png) 0 -145px;
-      }
 
       .rightSynopsis {
         margin-left: 30px;
