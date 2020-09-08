@@ -1,11 +1,15 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import * as actionType from "./store/actionCreators";
 import { Link } from "react-router-dom";
 import { getCount } from "@/config/utils";
-import "./style.scss";
+import { Pagination } from "antd";
+import "./playlist.scss";
+import 'antd/dist/antd.css'
 
 function Playlist(props) {
+  //   console.log(props, "Playlist");
+
   const { catList, category, hotCommendList, query } = props;
   const { getCatListDispatch, getHotCommendDispatch } = props;
 
@@ -16,10 +20,8 @@ function Playlist(props) {
     if (!catList.length || !category.length) {
       getCatListDispatch();
     }
-    if (!hotCommendList.length) {
-      let data = `offset=${(query.page - 1) * 35}&limit=35`;
-      getHotCommendDispatch(data);
-    }
+    let data = `offset=${(query.page - 1) * 35}&limit=35`;
+    getHotCommendDispatch(data);
     //eslint-disable-next-line
   }, []);
 
@@ -32,7 +34,7 @@ function Playlist(props) {
     // category 判断详细分类
     return arr.map((item, index) => {
       return (
-        <dl key={index}>
+        <dl>
           <dt>{item}</dt>
           <dd>
             {catList.map((items) => {
@@ -40,12 +42,9 @@ function Playlist(props) {
                 return (
                   <>
                     <Link
-                      key={items.name}
                       to={`/discover/playlist/?cat=${items.name}`}
                       onClick={() => {
-                        getHotCommendDispatch(
-                          `offset=${(1 - 1) * 35}&limit=35&cat=${items.name}`
-                        );
+                        getHotCommendDispatch(`limit=35&cat=${items.name}`);
                         setChooseCategory(!showChooseCategory);
                         setcatName(items.name);
                       }}
@@ -60,12 +59,9 @@ function Playlist(props) {
                 return (
                   <>
                     <Link
-                      key={items.name}
                       to={`/discover/playlist/?cat=${items.name}`}
                       onClick={() => {
-                        getHotCommendDispatch(
-                          `offset=${(1 - 1) * 35}&limit=35&cat=${items.name}`
-                        );
+                        getHotCommendDispatch(`limit=35&cat=${items.name}`);
                         setChooseCategory(!showChooseCategory);
                         setcatName(items.name);
                       }}
@@ -80,12 +76,9 @@ function Playlist(props) {
                 return (
                   <>
                     <Link
-                      key={items.name}
                       to={`/discover/playlist/?cat=${items.name}`}
                       onClick={() => {
-                        getHotCommendDispatch(
-                          `offset=${(1 - 1) * 35}&limit=35&cat=${items.name}`
-                        );
+                        getHotCommendDispatch(`limit=35&cat=${items.name}`);
                         setChooseCategory(!showChooseCategory);
                         setcatName(items.name);
                       }}
@@ -100,12 +93,9 @@ function Playlist(props) {
                 return (
                   <>
                     <Link
-                      key={items.name}
                       to={`/discover/playlist/?cat=${items.name}`}
                       onClick={() => {
-                        getHotCommendDispatch(
-                          `offset=${(1 - 1) * 35}&limit=35&cat=${items.name}`
-                        );
+                        getHotCommendDispatch(`limit=35&cat=${items.name}`);
                         setChooseCategory(!showChooseCategory);
                         setcatName(items.name);
                       }}
@@ -120,12 +110,9 @@ function Playlist(props) {
                 return (
                   <>
                     <Link
-                      key={items.name}
                       to={`/discover/playlist/?cat=${items.name}`}
                       onClick={() => {
-                        getHotCommendDispatch(
-                          `offset=${(1 - 1) * 35}&limit=35&cat=${items.name}`
-                        );
+                        getHotCommendDispatch(`limit=35&cat=${items.name}`);
                         setChooseCategory(!showChooseCategory);
                         setcatName(items.name);
                       }}
@@ -140,10 +127,8 @@ function Playlist(props) {
           </dd>
         </dl>
       );
-    })
-  
+    });
   };
-
   //风格
   const chooseCategory = () => {
     return (
@@ -166,47 +151,72 @@ function Playlist(props) {
       </div>
     );
   };
-
+  // 分页
+  const changePagination = (page) => {
+    let data = `offset=${(page - 1) * 35}&limit=35&cat=${catName}`;
+    getHotCommendDispatch(data, page);
+    window.scrollTo(0, 0);
+  };
   return (
-    <div className='playlist'>
-      <div className='playlistNav'>
-        <h2 style={{ float: "left", fontSize: 24 }}>{catName}</h2>
-        <a
-          className='selectCat'
-          href='javascript:;'
+    <div style={{ background: "#fff" }}>
+      {/* 遮罩 */}
+      {showChooseCategory === true ? (
+        <div
           onClick={() => {
             setChooseCategory(!showChooseCategory);
           }}
-        >
-          选择分类
-        </a>
-        {/* 风格 */}
-        <div>{showChooseCategory === true ? chooseCategory() : null}</div>
-      </div>
+          className='mask'
+        ></div>
+      ) : null}
+      <div className='playlist'>
+        <div className='playlistNav'>
+          <h2 style={{ float: "left", fontSize: 24 }}>{catName}</h2>
+          <a
+            className='selectCat'
+            href='javascript:;'
+            onClick={() => {
+              setChooseCategory(!showChooseCategory);
+            }}
+          >
+            选择分类
+          </a>
+          {/* 风格 */}
+          <div>{showChooseCategory === true ? chooseCategory() : null}</div>
+        </div>
+        {/* 列表 */}
+        <div className='hotCommendCard'>
+          {hotCommendList.map((item) => {
+            return (
+              <div className='picture' key={item.id}>
+                <Link to={`/playlist?id=${item.id}`}>
+                  <img src={item.coverImgUrl} alt='' />
+                </Link>
+                <div className='playBgi'>
+                  <span className='earphoneIcon'></span>
+                  <span className='playCount'>{getCount(item.playCount)}</span>
 
-      <div className='hotCommendCard'>
-        {hotCommendList.map((item) => {
-          return (
-            <div className='picture' key={item.id}>
-              <Link to={`/playlist?id=${item.id}`}>
-                <img src={item.coverImgUrl} alt='' />
-              </Link>
-              <div className='playBgi'>
-                <span className='earphoneIcon'></span>
-                <span className='playCount'>{getCount(item.playCount)}</span>
+                  <span
+                    className='playIcon'
+                    onClick={() => console.log(item.id)}
+                  ></span>
+                </div>
 
-                <span
-                  className='playIcon'
-                  onClick={() => console.log(item.id)}
-                ></span>
+                <div className='commendName'>
+                  <Link to={`/playlist?id=${item.id}`}>{item.name}</Link>
+                </div>
               </div>
-
-              <div className='commendName'>
-                <Link to={`/playlist?id=${item.id}`}>{item.name}</Link>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
+        {/* 分页 */}
+        <Pagination
+          className='pagination'
+          onChange={changePagination}
+          current={query.page}
+          total={query.total}
+          pageSize={"35"}
+          showSizeChanger={false}
+        />
       </div>
     </div>
   );
@@ -227,8 +237,8 @@ const mapDispatchToProps = (dispatch) => {
     getCatListDispatch() {
       dispatch(actionType.getCatList());
     },
-    getHotCommendDispatch(query) {
-      dispatch(actionType.getHotCommend(query));
+    getHotCommendDispatch(query, page) {
+      dispatch(actionType.getHotCommend(query, page));
     },
   };
 };

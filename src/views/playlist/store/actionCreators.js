@@ -25,11 +25,11 @@ export const getCatList = () => {
     };
   };
 
-export const getHotCommend = (query) => {
+export const getHotCommend = (query, page) => {
   return (dispatch) => {
-    console.log(query,'query');
     getHotCommendRequest(query)
     .then((data) => {
+      data.page = page || 1
       console.log(data);
       dispatch(changeHotCommendRequest(data));
     })

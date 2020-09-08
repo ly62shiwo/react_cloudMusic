@@ -31,3 +31,7 @@ export const getPlayListDetailRequest = (id) => {
 export const getCatListCategoryRequest = () => {
   return axiosInstance.get(`/playlist/catlist`);
 };
+// 电台分类
+export const getDjCategoryRequest = () => {
+  return axiosInstance.get(`/dj/catelist`);
+};
