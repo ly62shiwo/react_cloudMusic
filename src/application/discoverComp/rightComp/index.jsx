@@ -32,8 +32,7 @@ function RightComp(props) {
                 <Link to={`/artist?id=${item.id}`} key={item.accountId}>
                   <div className='singerDetail'>
                     <img
-                      style={{ width: 62, height: 62 }}
-                      src={item.img1v1Url}
+                      src={item.img1v1Url + "?param=62y62"}
                       alt=''
                     ></img>
                     <p>{item.name}</p>

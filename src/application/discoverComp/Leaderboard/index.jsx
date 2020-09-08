@@ -28,15 +28,23 @@ function Leaderboard(props) {
                   <div className='listDetails' key={item.id}>
                     <Link to={`/discover/toplist?id=${item.id}`}>
                       <img
-                        style={{ width: 100, height: 100 }}
-                        src={item.coverImgUrl}
+                        src={item.coverImgUrl + "?param=100y100"}
                         alt='榜单'
                       ></img>
+                      <span className='mark'></span>
                     </Link>
                     <div className='toToplist'>
                       <Link to={`/discover/toplist?id=${item.id}`}>
                         {item.name}
                       </Link>
+                      <span
+                        className='playIcon'
+                        onClick={() => console.log("播放")}
+                      ></span>
+                      <span
+                        className='collect'
+                        onClick={() => console.log("登录收藏")}
+                      ></span>
                     </div>
                   </div>
                 );

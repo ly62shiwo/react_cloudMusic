@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { getCount } from "@/config/utils";
 import { Pagination } from "antd";
 import "./playlist.scss";
-import 'antd/dist/antd.css'
 
 function Playlist(props) {
   //   console.log(props, "Playlist");
@@ -189,7 +188,7 @@ function Playlist(props) {
             return (
               <div className='picture' key={item.id}>
                 <Link to={`/playlist?id=${item.id}`}>
-                  <img src={item.coverImgUrl} alt='' />
+                  <img src={item.coverImgUrl + "?param=140y140"} alt='' />
                 </Link>
                 <div className='playBgi'>
                   <span className='earphoneIcon'></span>

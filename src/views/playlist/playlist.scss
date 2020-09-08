@@ -29,7 +29,6 @@
       display: block;
       text-align: center;
       margin-left: 10px;
-      margin-bottom: 10px;
       width: 90px;
       height: 30px;
       line-height: 30px;
@@ -134,8 +133,6 @@
       line-height: 1.2;
 
       img {
-        width: 140px;
-        height: 140px;
         box-shadow: 1px 2px 3px #383838;
       }
 
@@ -205,4 +202,12 @@
 .pagination {
   display: flex;
   justify-content: center;
+}
+
+.ant-pagination-item  {
+  padding: 0 10px;
+}
+.ant-pagination-item-active {
+  background-color: red;
+  color: #fff;
 }

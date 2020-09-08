@@ -60,9 +60,8 @@ function NewDiscShelf(props) {
                     <div className='imgBgc'>
                       <Link to={`/album?id=${item.id}`}>
                         <img
-                          src={item.picUrl}
+                          src={item.picUrl + "?param=100y100"}
                           alt='新碟上架'
-                          style={{ width: 100, height: 100 }}
                         />
                       </Link>
                     </div>
