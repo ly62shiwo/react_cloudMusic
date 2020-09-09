@@ -20,9 +20,9 @@ function Header(props) {
       {/* nav导航 */}
       <div className='nav'>
         <div className='wrap'>
-          <h1 className='logo'>
-            <Link to='/'></Link>
-          </h1>
+          <Link to='/'>
+            <h1 className='logo'></h1>
+          </Link>
           <ul className='navUl'>
             {navMenus.map((item) => {
               return item.target ? (
@@ -58,7 +58,9 @@ function Header(props) {
                   >
                     {item.title}
                   </Link>
-                  {item.title === "下载客户端" ? (<span className='hotIcon'></span>) : null}
+                  {item.title === "下载客户端" ? (
+                    <span className='hotIcon'></span>
+                  ) : null}
                   <div className={select === item.key ? "sanjiao" : null}></div>
                 </li>
               );

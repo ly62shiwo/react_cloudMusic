@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actionType from "./store/actionCreators";
+import {Spin} from 'antd'
 import "./styles.scss";
 
 function Toplist(props) {
   const { leaderBoardList, playListDetail } = props;
   const { getLeaderboardDispatch, getPlayLisDetailDispatch } = props; // dispatch
-  console.log(props, "toplist");
+  // console.log(props, "toplist");
 
   const [select, setSelect] = useState(19723756);
   const [updateTimeName, setUpdateTimeName] = useState("每天更新");

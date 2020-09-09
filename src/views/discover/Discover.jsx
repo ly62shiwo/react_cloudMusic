@@ -28,13 +28,23 @@ function Discover(props) {
   } = props; // dispatch
 
   useEffect(() => {
-    getBannerDataDispatch();
-    getHotCommendDispatch();
-    getNewDiscShelfDispatch();
-    getLeaderboardDispatch();
-    getHotSingerDispatch(0, 5);
-    getHotAnchorDispatch(5);
-     //eslint-disable-next-line
+    if (
+      !bannerList.length ||
+      !hotCommendList.length ||
+      !newDiscShelfList.length ||
+      !leaderboardList.length ||
+      !hotSingerList.length ||
+      !hotAnchorList.length
+    ) {
+      getBannerDataDispatch();
+      getHotCommendDispatch();
+      getNewDiscShelfDispatch();
+      getLeaderboardDispatch();
+      getHotSingerDispatch(0, 5);
+      getHotAnchorDispatch(5);
+    }
+
+    //eslint-disable-next-line
   }, []);
 
   return (
@@ -82,8 +92,8 @@ const mapDispatchToProps = (dispatch) => {
     getLeaderboardDispatch() {
       dispatch(actionType.getLeaderboardList());
     },
-    getHotSingerDispatch(count,num) {
-      dispatch(actionType.getHotSingerList(count,num));
+    getHotSingerDispatch(count, num) {
+      dispatch(actionType.getHotSingerList(count, num));
     },
     getHotAnchorDispatch(num) {
       dispatch(actionType.getHotAnchorList(num));
