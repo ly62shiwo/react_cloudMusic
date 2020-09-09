@@ -4,14 +4,8 @@
 */
 @import './variable.scss';
 
-@mixin a_dark {
-    color: $font-color-dark;
-    border-bottom: 1px solid $font-color-dark;
-}
-
-@mixin a_grey {
-    color: $font-color-grey;
-    border-bottom: 1px solid $font-color-grey;
+@mixin hover {
+    text-decoration: underline;
 }
 
 @mixin oneTextHidden {

@@ -1,4 +1,5 @@
 @import './variable.scss';
+@import '@/style/mixin.scss';
 
 html,
 body,
@@ -88,7 +89,6 @@ video {
     font: inherit;
     vertical-align: baseline;
 }
-
 
 ol,
 ul {

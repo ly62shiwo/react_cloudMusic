@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actionType from "./store/actionCreators";
-import {Spin} from 'antd'
+import { Spin } from "antd";
 import "./styles.scss";
 
 function Toplist(props) {
@@ -117,7 +117,7 @@ function Toplist(props) {
   };
 
   return (
-    <div className='topList'>
+    <div className='topList m_wrap'>
       <div className='leftDiv'>
         <h2>云音乐特色榜</h2>
         <ul>
@@ -126,7 +126,11 @@ function Toplist(props) {
                 return (
                   <div key={item.id}>
                     <li
-                      className={ Number(props.location.search.slice(4)) === item.id ? "bgc" : null }
+                      className={
+                        Number(props.location.search.slice(4)) === item.id
+                          ? "bgc"
+                          : null
+                      }
                       onClick={() => {
                         setSelect(item.id);
                         getPlayLisDetailDispatch(item.id);
@@ -136,8 +140,10 @@ function Toplist(props) {
                     >
                       <Link to={`/discover/toplist?id=${item.id}`}>
                         <img src={item.coverImgUrl + "?param=40y40"} alt='' />
-                        <p>{item.name}</p>
-                        <p className='update'>{item.updateFrequency}</p>
+                        <div className='leftTopName'>
+                          <span style={{color: 'black'}}>{item.name}</span>
+                          <span style={{color: '#666'}}>{item.updateFrequency}</span>
+                        </div>
                       </Link>
                     </li>
                     {item.name === "云音乐热歌榜" ? (

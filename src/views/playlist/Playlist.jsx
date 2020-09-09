@@ -7,7 +7,7 @@ import { Pagination } from "antd";
 import "./playlist.scss";
 
 function Playlist(props) {
-  //   console.log(props, "Playlist");
+    console.log(props, "Playlist");
 
   const { catList, category, hotCommendList, query } = props;
   const { getCatListDispatch, getHotCommendDispatch } = props;
@@ -133,13 +133,13 @@ function Playlist(props) {
     return (
       <div className='chooseCategory'>
         <span className='icon'></span>
-        <div className='all'>
+        <div className='topPlaceholder'>
           <Link
-            className='selectCat'
             to={`/discover/playlist`}
             onClick={() => {
               getHotCommendDispatch(`offset=${(1 - 1) * 35}&limit=35`);
               setChooseCategory(!showChooseCategory);
+              setcatName('全部')
             }}
           >
             全部风格
@@ -147,6 +147,7 @@ function Playlist(props) {
         </div>
 
         <div> {categoryList()}</div>
+        <div className='bottomPlaceholder'></div>
       </div>
     );
   };
@@ -157,7 +158,7 @@ function Playlist(props) {
     window.scrollTo(0, 0);
   };
   return (
-    <div style={{ background: "#fff" }}>
+    <div>
       {/* 遮罩 */}
       {showChooseCategory === true ? (
         <div
@@ -167,18 +168,17 @@ function Playlist(props) {
           className='mask'
         ></div>
       ) : null}
-      <div className='playlist'>
+      <div className='playlist m_wrap'>
         <div className='playlistNav'>
           <h2 style={{ float: "left", fontSize: 24 }}>{catName}</h2>
-          <a
+          <span
             className='selectCat'
-            href='javascript:;'
             onClick={() => {
               setChooseCategory(!showChooseCategory);
             }}
           >
             选择分类
-          </a>
+          </span>
           {/* 风格 */}
           <div>{showChooseCategory === true ? chooseCategory() : null}</div>
         </div>

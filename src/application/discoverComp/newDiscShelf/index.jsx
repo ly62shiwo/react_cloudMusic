@@ -32,58 +32,46 @@ function NewDiscShelf(props) {
   }, [newDiscShelfList, newDiscSwiper]);
 
   return (
-    <div style={{ width: 980, margin: "0 auto" }}>
-      <div
-        style={{
-          width: 730,
-          background: "#fff",
-          padding: 20,
-          boxSizing: "border-box",
-        }}
-      >
-        <div className='hotNav'>
-          <span className='hotNavIcon'></span>
-          <Link to='discover/album' className='goCommend'>
-            新碟上架
-          </Link>
-          <Link to='discover/album' className='goMore'>
-            更多
-          </Link>
-        </div>
-        {/* 新碟轮播 */}
-        <div className='inner'>
-          <div className='swiper-newDiscShelf'>
-            <div className='swiper-wrapper'>
-              {newDiscShelfList.map((item, index) => {
-                return (
-                  <div className='swiper-slide' key={index}>
-                    <div className='imgBgc'>
-                      <Link to={`/album?id=${item.id}`}>
-                        <img
-                          src={item.picUrl + "?param=100y100"}
-                          alt='新碟上架'
-                        />
-                      </Link>
-                    </div>
-                    <div className='newDiscName'>
-                      <Link to={`/album?id=${item.id}`} className='songName'>
-                        {item.name}
-                      </Link>
-                      <br />
-                      <Link
-                        to={`/artist?id=${item.artist.id}`}
-                        className='name'
-                      >
-                        {item.artist.name}
-                      </Link>
-                    </div>
+    <div className='newDiscShelf'>
+      <div className='hotNav'>
+        <span className='hotNavIcon'></span>
+        <Link to='discover/album' className='goCommend'>
+          新碟上架
+        </Link>
+        <Link to='discover/album' className='goMore'>
+          更多
+        </Link>
+      </div>
+      {/* 新碟轮播 */}
+      <div className='inner'>
+        <div className='swiper-newDiscShelf'>
+          <div className='swiper-wrapper'>
+            {newDiscShelfList.map((item, index) => {
+              return (
+                <div className='swiper-slide' key={index}>
+                  <div className='imgBgc'>
+                    <Link to={`/album?id=${item.id}`}>
+                      <img
+                        src={item.picUrl + "?param=100y100"}
+                        alt='新碟上架'
+                      />
+                    </Link>
                   </div>
-                );
-              })}
-            </div>
-            <div className='swiper-button-prev'></div>
-            <div className='swiper-button-next'></div>
+                  <div className='newDiscName'>
+                    <Link to={`/album?id=${item.id}`} className='songName'>
+                      {item.name}
+                    </Link>
+                    <br />
+                    <Link to={`/artist?id=${item.artist.id}`} className='name'>
+                      {item.artist.name}
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
           </div>
+          <div className='swiper-button-prev'></div>
+          <div className='swiper-button-next'></div>
         </div>
       </div>
     </div>

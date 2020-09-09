@@ -1,23 +1,23 @@
+@import '../style/variable.scss';
 .nav {
   position: relative;
   z-index: 99;
   width: 100%;
-  height: 70px;
   box-sizing: border-box;
   background: #242424;
-  border-bottom: 1px solid #000;
 
   .logo {
     float: left;
     width: 176px;
     height: 69px;
     background: url(../assets/topbar.png) no-repeat 0 -2px;
-
   }
 
   .navUl {
     display: flex;
     overflow: hidden;
+    margin: 0;
+
     .navLi {
       position: relative;
 
@@ -37,8 +37,8 @@
         display: block;
         line-height: 70px;
         padding: 0 19px;
-        color: #ccc;
-        font-size: 14px;
+        color: $font-color-ccc;
+        font-size: $font-m;
       }
 
       a:hover {
@@ -62,47 +62,43 @@
     height: 15px;
     background: url(../assets/topbar.png) -192px 0;
   }
-}
 
-.navBar {
-  z-index: 99;
-  width: 100%;
-  height: 35px;
-  line-height: 35px;
-  background-color: #d61414;
-  padding-left: 180px;
+  .navBar {
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    background-color: #d61414;
 
-  .navUl {
-    // display: flex;
-    // justify-content: flex-start;
-    box-sizing: border-box;
+    .navUlTwo {
+      display: flex;
+      margin-left: 180px;
 
-    .navLi {
-      float: left;
-      margin: 0 15px;
+      .navLiTwo {
+        margin: 0 15px;
 
-      a {
-        font-size: 12px;
-        padding: 3px 15px;
-        border-radius: 20px;
-        color: #fff;
-      }
+        a {
+          font-size: $font-s;
+          padding: 3px 15px;
+          border-radius: 20px;
+          color: $font-color-white;
+        }
 
-      a:hover {
-        background-color: #9b0909;
-        color: #ffffff;
-      }
+        a:hover {
+          background-color: #9b0909;
+          color: $font-color-white;
+        }
 
-      .actionTwo {
-        background-color: #9b0909;
-        color: #ffffff;
+        .actionTwo {
+          background-color: #9b0909;
+          color: $font-color-white;
+        }
       }
     }
   }
-}
 
-.navBarString {
-  z-index: 10;
-  height: 5px;
-  background-color: #d61414;
+  .navBarString {
+    z-index: 10;
+    height: 5px;
+    background-color: #d61414;
+  }
 }

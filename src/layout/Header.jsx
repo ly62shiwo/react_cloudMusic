@@ -4,7 +4,7 @@ import { navMenus, navMenusTwo } from "@/config/navMenus.js";
 import "./header.scss";
 
 function Header(props) {
-  // console.log(props);
+  console.log(props, "header");
   const [select, setSelect] = useState("discover");
 
   useEffect(() => {
@@ -67,30 +67,33 @@ function Header(props) {
             })}
           </ul>
         </div>
+
+        {/* 页面导航 */}
+        {select === "discover" ? (
+          <div className='navBar'>
+            <div className='wrap'>
+              <ul className='navUlTwo'>
+                {navMenusTwo.map((item) => {
+                  return (
+                    <li key={item.key} className='navLiTwo'>
+                      <Link
+                        className={
+                          props.location.pathname === item.path ? "actionTwo"   : null
+                        }
+                        to={item.path}
+                      >
+                        {item.title}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+        ) : (
+          <div className='navBarString'></div>
+        )}
       </div>
-      {/* 页面导航 */}
-      {select === "discover" ? (
-        <div className='navBar'>
-          <ul className='navUl wrap'>
-            {navMenusTwo.map((item) => {
-              return (
-                <li key={item.key} className='navLi'>
-                  <Link
-                    className={
-                      props.location.pathname === item.path ? "actionTwo" : null
-                    }
-                    to={item.path}
-                  >
-                    {item.title}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      ) : (
-        <div className='navBarString'></div>
-      )}
     </div>
   );
 }

@@ -1,91 +1,75 @@
-.hotNav {
-  border-bottom: 2px solid #c10d0c;
-  height: 33px;
-  line-height: 33px;
-  .hotNavIcon {
-    display: block;
-    float: left;
-    width: 30px;
-    height: 35px;
-    background: url(../../../assets/index.png) -235px -155px;
-  }
-  .goCommend {
-    font-size: 20px;
-    color: black;
-  }
-  .goMore {
-    float: right;
-    font-size: 12px;
-  }
-}
-// 新碟轮播
-.inner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  height: 184px;
-  background: #f5f5f5;
-  border: 1px solid #d3d3d3;
+@import '@/style/variable.scss';
+@import '@/style/mixin.scss';
+
+
+.newDiscShelf {
+  width: 730px;
+  padding: 20px;
   box-sizing: border-box;
-  margin: 20px 0;
+  border-right: 1px solid $border-color-bottom;
 
-  .swiper-newDiscShelf {
-    overflow: hidden;
-    line-height: 1.2;
-    margin: 20px;
+  // 新碟轮播
+  .inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 184px;
+    background: $background-color-theme;
+    border: 1px solid $border-color-bottom;
+    box-sizing: border-box;
+    margin: 20px 0;
 
-    .swiper-slide {
-      font-size: 12px;
-      margin-left: 1px;
-      .imgBgc {
-        width: 116px;
-        height: 100px;
-        background: url(../../../assets/coverall.png) 0 -569px;
-      }
-      img {
-        box-shadow: 0 3px 5px #888888;
-      }
-      .newDiscName {
-        a {
-          color: black;
-          border-bottom: 1px solid #f5f5f5;
+    .swiper-newDiscShelf {
+      overflow: hidden;
+      margin: 20px;
+
+      .swiper-slide {
+        font-size: $font-s;
+        margin-left: 1px;
+
+        .imgBgc {
+          width: 116px;
+          height: 100px;
+          margin-bottom: 5px;
+          background: url(../../../assets/coverall.png) 0 -569px;
         }
-        a:hover {
-          border-bottom: 1px solid #000;
+
+        img {
+          box-shadow: 0 3px 5px #888888;
         }
-        .songName {
-          max-width: 100px;
-          display: inline-block;
-          margin-top: 8px;
-          color: #000;
-          text-decoration: #000;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-        .name {
-          display: inline-block;
-          color: #666;
-          font-size: 12px;
-          max-width: 100px;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
+
+        .newDiscName {
+          width: 100px;
+          @include oneTextHidden;
+
+          .name {
+            color: $font-color-grey6;
+          }
+
+          a {
+            color: $font-color-dark0;
+          }
+
+          a:hover {
+            @include hover
+          }
         }
       }
     }
-  }
-  .swiper-button-prev {
-    left: 0;
-    width: 17px;
-    height: 17px;
-    background: url(../../../assets/index.png) -260px -77px;
-  }
-  .swiper-button-next {
-    right: 0;
-    width: 17px;
-    height: 17px;
-    background: url(../../../assets/index.png) -302px -77px;
+
+    .swiper-button-prev {
+      left: 0;
+      width: 17px;
+      height: 17px;
+      background: url(../../../assets/index.png) -260px -77px;
+    }
+
+    .swiper-button-next {
+      right: 0;
+      width: 17px;
+      height: 17px;
+      background: url(../../../assets/index.png) -302px -77px;
+    }
   }
 }

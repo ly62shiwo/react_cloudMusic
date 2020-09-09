@@ -1,54 +1,50 @@
+@import '@/style/variable.scss';
+@import '@/style/mixin.scss';
+
 .topList {
   display: flex;
-  align-items: stretch;
-  width: 982px;
-  margin: 0 auto;
   height: 100%;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
+  border-left: 1px solid $border-color-bottom;
+  border-right: 1px solid $border-color-bottom;
 
   .leftDiv {
     width: 240px;
 
     .bgc {
-      background-color: #e6e6e6;
+      background-color: $background-color-theme2;
     }
 
     h2 {
       margin-top: 20px;
       padding: 20px 10px 12px 15px;
-      font-size: 14px;
+      font-size: $font-m;
       font-weight: 900;
-      color: #000;
+      color: $font-color-dark;
+    }
+    .leftTopName {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-left: 10px;
     }
 
     li {
       position: relative;
       padding: 10px 0 10px 20px;
-      font-size: 12px;
+      font-size: $font-s;
 
       a {
         display: flex;
-        color: #000;
-
-        p {
-          margin-left: 10px;
-        }
+        color: $font-color-dark;
       }
 
-      .update {
-        position: absolute;
-        left: 60px;
-        bottom: 16%;
-        color: #666;
-      }
     }
   }
 
   .rightDiv {
     width: 739px;
-    border-left: 1px solid #ccc;
-    background-color: #fff;
+    border-left: 1px solid $border-color-bottom;
+    background-color: $background-color-theme1;
 
     // 榜头部
     .synopsis {
@@ -61,7 +57,7 @@
         height: 160px;
         img {
           padding: 3px;
-          border: 1px solid #ccc;
+          border: 1px solid $border-color-bottom;
         }
 
         .mark {
@@ -86,8 +82,8 @@
 
         .updateTime {
           display: flex;
-          font-size: 12px;
-          color: #666;
+          font-size: $font-s;
+          color: $font-color-grey6;
           line-height: 15px;
 
           .icon {
@@ -112,13 +108,13 @@
         align-content: center;
         height: 33px;
         line-height: 33px;
-        font-size: 12px;
-        color: #666;
-        border-bottom: 2px solid #c20c0c;
+        font-size: $font-s;
+        color: $font-color-grey6;
+        border-bottom: 2px solid $border-color-bottom1;
 
         h3 {
-          font-size: 20px;
-          color: #000;
+          font-size: $font-xxl;
+          color: $font-color-dark0;
         }
 
         p {
@@ -127,14 +123,14 @@
         }
 
         strong {
-          color: #c20c0c;
+          color: $font-color-red;
           font-weight: bold;
         }
       }
 
       .m-table {
         width: 100%;
-        border: 1px solid #d9d9d9;
+        border: 1px solid $border-color-bottom;
         box-sizing: border-box;
 
         .topImg {
@@ -151,11 +147,11 @@
         }
 
         a {
-          color: #000;
+          color: $font-color-dark0;
         }
 
         a:hover {
-          border-bottom: 1px solid #000;
+          @include hover
         }
 
         tr {
@@ -166,16 +162,14 @@
             display: flex;
             color: #666;
             padding: 10px 5px;
-            border-left: 1px solid #d9d9d9;
-            border-bottom: 1px solid #d9d9d9;
+            border-left: 1px solid $border-color-bottom;
+            border-bottom: 1px solid $border-color-bottom;
           }
 
           td {
             margin: auto;
             padding: 5px;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            white-space: nowrap;
+            @include oneTextHidden;
           }
         }
       }
