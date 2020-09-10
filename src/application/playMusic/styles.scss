@@ -1,0 +1,63 @@
+@import '@/style/variable.scss';
+@import '@/style/mixin.scss';
+
+
+.playMusic {
+    position: fixed;
+    bottom: 0;
+    z-index: 99;
+    width: 100%;
+    height: 50px;
+    padding-top: 3px;
+    background: url(../../assets/playbar.png) 0 -3px;
+    float: left;
+
+    .playBtn {
+        display: flex;
+        align-items: center;
+        float: left;
+        height: 50px;
+        width: 137px;
+
+        .previousSong {
+            display: block;
+            width: 28px;
+            height: 28px;
+            background: url(../../assets/playbar.png) 0 -130px;
+        }
+
+        .previousSong:hover {
+            background: url(../../assets/playbar.png) -30px -130px;
+        }
+
+        .playSong {
+            width: 36px;
+            height: 36px;
+            margin: 0 7px;
+            background: url(../../assets/playbar.png) 0 -205px;
+        }
+
+        .playSong:hover {
+            background: url(../../assets/playbar.png) -40px -205px;
+        }
+
+        .nextSong {
+            display: block;
+            width: 28px;
+            height: 28px;
+            background: url(../../assets/playbar.png) -82px -130px;
+        }
+
+        .nextSong:hover {
+            background: url(../../assets/playbar.png) -112px -130px;
+        }
+    }
+
+    .playImg {
+
+        img {
+            width: 34px;
+            height: 35px;
+        }
+    }
+}

@@ -84,11 +84,11 @@ function Discover(props) {
                           ></span>
                         </div>
 
-                        <div className='commendName'>
-                          <Link to={`/playlist?id=${item.id}`}>
+                     
+                          <Link className='commendName' to={`/playlist?id=${item.id}`}>
                             {item.name}
                           </Link>
-                        </div>
+                        
                       </div>
                     );
                   })
@@ -164,7 +164,7 @@ function Discover(props) {
             {hotSingerList.length
               ? hotSingerList.map((item) => {
                   return (
-                    <Link to={`/artist?id=${item.id}`} key={item.accountId}>
+                    <Link to={`/artist?id=${item.id}`} key={item.id}>
                       <div className='singerDetail'>
                         <img src={item.img1v1Url + "?param=62y62"} alt=''></img>
                         <p>{item.name}</p>

@@ -7,7 +7,7 @@ import { Pagination } from "antd";
 import "./playlist.scss";
 
 function Playlist(props) {
-    console.log(props, "Playlist");
+  console.log(props, "Playlist");
 
   const { catList, category, hotCommendList, query } = props;
   const { getCatListDispatch, getHotCommendDispatch } = props;
@@ -139,7 +139,7 @@ function Playlist(props) {
             onClick={() => {
               getHotCommendDispatch(`offset=${(1 - 1) * 35}&limit=35`);
               setChooseCategory(!showChooseCategory);
-              setcatName('全部')
+              setcatName("全部");
             }}
           >
             全部风格

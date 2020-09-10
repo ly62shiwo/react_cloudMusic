@@ -37,6 +37,7 @@
     box-sizing: border-box;
 
 }
+
 // 热门推荐
 .hotCommend {
     width: 730px;
@@ -56,15 +57,13 @@
             width: 140px;
             height: 204px;
 
-            a {
-                color: black;
-                font-size: 14px;
+            .commendName {
+                color: $font-color-dark0;
+                font-size: $font-m;
             }
 
-            .commendName {
-                a:hover {
-                    @include hover
-                }
+            .commendName:hover {
+                @include hover
             }
 
             .playBgi {

@@ -4,7 +4,7 @@ import { navMenus, navMenusTwo } from "@/config/navMenus.js";
 import "./header.scss";
 
 function Header(props) {
-  console.log(props, "header");
+  // console.log(props, "header");
   const [select, setSelect] = useState("discover");
 
   useEffect(() => {
@@ -21,7 +21,7 @@ function Header(props) {
       <div className='nav'>
         <div className='wrap'>
           <Link to='/'>
-            <h1 className='logo'></h1>
+            <h1 className='logo'>logo</h1>
           </Link>
           <ul className='navUl'>
             {navMenus.map((item) => {

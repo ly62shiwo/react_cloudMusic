@@ -9,3 +9,26 @@ export const getCount = (count) => {
   }
 };
 
+// 歌手名处理 无跳转
+export const getName = (list) => {
+  let str = "";
+  list.map((item, index) => {
+    str += index === 0 ? item.name : "/" + item.name;
+    return item;
+  });
+  return str;
+};
+
+// 时间戳转换为时间
+export const timestamp = (time) => {
+  let getDate = new Date(time);
+
+  if ((time + "").length > 12) {
+    return getDate.getMonth() + 1 + "月" + getDate.getDate() + "日";
+  } else {
+    let minute = getDate.getMinutes() < 10 ? '0' + getDate.getMinutes() : getDate.getMinutes()
+    let second = getDate.getSeconds() < 10 ? '0' + getDate.getSeconds() : getDate.getSeconds()
+    return minute + ':' + second
+  }
+
+};
