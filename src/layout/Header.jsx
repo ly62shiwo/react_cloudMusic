@@ -21,7 +21,7 @@ function Header(props) {
       <div className='nav'>
         <div className='wrap'>
           <Link to='/'>
-            <h1 className='logo'>logo</h1>
+            <h1 className='logo'></h1>
           </Link>
           <ul className='navUl'>
             {navMenus.map((item) => {

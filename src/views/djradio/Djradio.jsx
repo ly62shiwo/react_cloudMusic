@@ -8,6 +8,7 @@ function Djradio(props) {
   const { djCategory } = props;
   const { getDjCategoryDispatch } = props;
 
+  const [select, setSelect] = useState();
   useEffect(() => {
     //   if (!djCategory) {
     getDjCategoryDispatch();
@@ -16,14 +17,25 @@ function Djradio(props) {
   }, []);
   return (
     <div className='djradio'>
-      {djCategory.map((item) => {
-        return (
-          <>
-            <img src={item.picWebUrl} alt='' />
-            {item.name}
-          </>
-        );
-      })}
+      <ul>
+        {djCategory.map((item) => {
+          return (
+            <li>
+              <a
+                href='javascript:;'
+                className={select === item.name ? "z-sel specific" : 'specific'}
+                onClick={() => {setSelect(item.name); console.log(item.name) }}
+              >
+                <span
+                  className='icon'
+                  style={{ backgroundImage: `url(${item.picWebUrl})` }}
+                ></span>
+                <em>{item.name}</em>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }

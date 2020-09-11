@@ -1,8 +1,56 @@
+@import '@/style/variable.scss';
+@import '@/style/mixin.scss';
+
 .djradio {
   width: 980px;
   margin: 0 auto;
-  padding: 40px;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
+  padding: 40px 10px;
+  border-left: 1px solid $border-color-bottom;
+  border-right: 1px solid $border-color-bottom;
+  background-color: $background-color-theme1;
+
+  ul {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    li {
+      margin: 0 0 25px 30px;
+
+      .specific {
+        display: block;
+        width: 70px;
+        height: 70px;
+        text-align: center;
+        color: $font-color-grey6;
+        font-size: $font-s;
+
+        .icon {
+          display: block;
+          background-position: 0 0;
+          width: 48px;
+          height: 48px;
+          margin: 0 auto;
+        }
+      }
+
+      .z-sel {
+        z-index: 99;
+        color: #d35757;
+        background: url(../../assets/radio_bg.png) -70px 0;
+        background-color: $background-color-theme1;
+      }
+
+      .specific:hover {
+        background-color: $background-color-theme2;
+      }
+    }
+
+
+
+
+
+  }
+
 
 }
