@@ -1,1 +1,2 @@
 export const CHANGE_DJ_CATEGORY = "djradio/CHANGE_DJ_CATEGORY ";
+export const CHANGE_DJ_RECOMMEND = "djradio/CHANGE_DJ_RECOMMEND";

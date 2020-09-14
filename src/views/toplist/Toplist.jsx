@@ -89,9 +89,7 @@ function Toplist(props) {
                       ></span>
                       <Link to={`song?id=${item.id}`}>{item.name}</Link>
 
-                      <span style={{ color: "#666", paddingLeft: 10 }}>
-                        {item.alia}
-                      </span>
+                      <span className='alia'>{item.alia}</span>
                     </td>
                     <td style={{ flex: 2 }}>{timestamp(item.dt)}</td>
                     <td style={{ flex: 3 }}> {singerName(item.ar)} </td>

@@ -4,7 +4,8 @@ export const getBannerRequest = () => {
   return axiosInstance.get("/banner?type=0");
 };
 // 热门推荐
-export const getHotCommendRequest = (data) => {  // ?limit=10&offset=1&order=new/hot&cat:tag--华语，欧美
+export const getHotCommendRequest = (data) => {
+  // ?limit=10&offset=1&order=new/hot&cat:tag--华语，欧美
   return axiosInstance.get(`/top/playlist?${data}`);
 };
 // 新碟上架
@@ -35,3 +36,14 @@ export const getCatListCategoryRequest = () => {
 export const getDjCategoryRequest = () => {
   return axiosInstance.get(`/dj/catelist`);
 };
+// 电台推荐节目
+export const getDjProgramRecommendRequest = () => {
+  return axiosInstance.get(`/program/recommend`);
+};
+// 电台节目排行榜
+export const getDjProgramTopRequest = () => {
+  return axiosInstance.get(`/dj/program/toplist`);
+};
+
+
+

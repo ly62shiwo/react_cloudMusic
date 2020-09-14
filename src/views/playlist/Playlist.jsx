@@ -41,7 +41,7 @@ function Playlist(props) {
                 return (
                   <>
                     <Link
-                      to={`/discover/playlist/?cat=${items.name}`}
+                      to={`/discover/playlist?cat=${items.name}`}
                       onClick={() => {
                         getHotCommendDispatch(`limit=35&cat=${items.name}`);
                         setChooseCategory(!showChooseCategory);
@@ -58,7 +58,7 @@ function Playlist(props) {
                 return (
                   <>
                     <Link
-                      to={`/discover/playlist/?cat=${items.name}`}
+                      to={`/discover/playlist?cat=${items.name}`}
                       onClick={() => {
                         getHotCommendDispatch(`limit=35&cat=${items.name}`);
                         setChooseCategory(!showChooseCategory);
@@ -75,7 +75,7 @@ function Playlist(props) {
                 return (
                   <>
                     <Link
-                      to={`/discover/playlist/?cat=${items.name}`}
+                      to={`/discover/playlist?cat=${items.name}`}
                       onClick={() => {
                         getHotCommendDispatch(`limit=35&cat=${items.name}`);
                         setChooseCategory(!showChooseCategory);
@@ -92,7 +92,7 @@ function Playlist(props) {
                 return (
                   <>
                     <Link
-                      to={`/discover/playlist/?cat=${items.name}`}
+                      to={`/discover/playlist?cat=${items.name}`}
                       onClick={() => {
                         getHotCommendDispatch(`limit=35&cat=${items.name}`);
                         setChooseCategory(!showChooseCategory);

@@ -1,7 +1,8 @@
 import * as actionTypes from "./actionTypes";
 
 const defaultState = {
-  djCategoryList: []
+  djCategoryList: [],
+  djRecommendList: [],
 };
 
 export default (state = defaultState, action) => {
@@ -9,6 +10,8 @@ export default (state = defaultState, action) => {
   switch (type) {
     case actionTypes.CHANGE_DJ_CATEGORY:
       return Object.assign({}, state, { djCategoryList: payload });
+    case actionTypes.CHANGE_DJ_RECOMMEND:
+      return Object.assign({}, state, {djRecommendList: payload});
 
     default:
       return state;

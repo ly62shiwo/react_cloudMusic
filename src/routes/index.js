@@ -52,8 +52,8 @@ export default [
       },
       {
         path: "/discover/djradio",
-        exact: true,
-        component: SuspenseComponent(Djradio),
+        // exact: true,
+        component: SuspenseComponent(Djradio)
       },
       {
         path: "/discover/artist",

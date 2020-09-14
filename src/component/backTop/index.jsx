@@ -7,7 +7,7 @@ export default function BackTopTo() {
   return (
     <div>
       <BackTop>
-        <div className='bactop'>TOP</div>
+        <div className='bactop'></div>
       </BackTop>
     </div>
   );

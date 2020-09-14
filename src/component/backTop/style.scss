@@ -3,18 +3,22 @@
 
 
 .bactop {
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
+    width: 50px;
+    height: 45px;
     border-radius: 5px;
-    background-color: $background-color-theme2;
+    // background-color: $background-color-theme2;
+    background: url(../../assets/sprite.png) -265px -45px;
     font-size: $font-s;
     text-align: center;
     color: $font-color-dark;
 }
+.bactop:hover {
+    background: url(../../assets/sprite.png) -325px -45px;
+
+}
 
 .ant-back-top {
     left: 50%;
-    bottom: 100px;
+    bottom: 110px;
     margin-left: 500px;
 }

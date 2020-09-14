@@ -4,18 +4,19 @@
 .djradio {
   width: 980px;
   margin: 0 auto;
-  padding: 40px 10px;
+  padding: 40px 20px;
   border-left: 1px solid $border-color-bottom;
   border-right: 1px solid $border-color-bottom;
   background-color: $background-color-theme1;
 
-  ul {
+  .banner {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     flex-wrap: wrap;
+    margin-left: -20px;
 
     li {
-      margin: 0 0 25px 30px;
+      margin: 0 0 25px 20px;
 
       .specific {
         display: block;
@@ -47,10 +48,95 @@
     }
 
 
+  }
+
+  .rditop {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+
+    .leftCommend,
+    .rightTop {
+      width: 426px;
+      min-height: 300px;
+    }
+  }
+
+  .goCommend {
+    font-size: $font-xxl + 4px;
+  }
+
+  .goCommend:hover,
+  .goMore:hover {
+    @include hover
+  }
+
+  .box {
+    width: 100%;
+    margin-top: 5px;
+    border: 1px solid $border-color-bottom3;
+    border-top: 2px solid $border-color-bottom1;
+
+    .odd {
+      background-color: #f7f7f7;
+    }
+    .itm:hover {
+      background-color: $background-color-theme2;
+    }
+    .itm {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 10px;
+
+      .name {
+        font-size: $font-s;
+        width: 65%;
+        margin-left: 10px;
+
+        h3 {
+          margin-bottom: 10px;
+
+          a {
+            display: block;
+            color: $font-color-dark;
+            @include oneTextHidden
+          }
+        }
+
+        p {
+          a {
+            color: $font-color-grey9;
+          }
+        }
+
+        a:hover {
+          @include hover
+        }
+
+      }
+
+      .tag {
+        font-size: $font-s;
+        margin-left: 10px;
+        padding: 3px 6px;
+        color: $font-color-grey9;
+        border: 1px solid $border-color-bottom;
+      }
+
+      .tag:hover {
+        color: $font-color-grey6;
+        border: 1px solid $font-color-grey9;
+
+      }
+
+    }
+
 
 
 
   }
+
 
 
 }

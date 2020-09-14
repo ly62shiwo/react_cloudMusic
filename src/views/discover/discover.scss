@@ -1,35 +1,6 @@
 @import '@/style/variable.scss';
 @import '@/style/mixin.scss';
 
-.hotNav {
-    border-bottom: 2px solid $border-color-bottom1;
-    height: 33px;
-    line-height: 33px;
-
-    .hotNavIcon {
-        display: block;
-        float: left;
-        width: 30px;
-        height: 35px;
-        background: url(../../assets/index.png) -235px -155px;
-    }
-
-    .goCommend {
-        font-size: $font-xxl;
-        color: $font-color-dark;
-    }
-
-    .goMore {
-        float: right;
-        font-size: $font-s;
-        color: $font-color-grey6;
-    }
-
-    .goMore:hover {
-        @include hover
-    }
-}
-
 .bigDiv {
     border: 1px solid $border-color-bottom;
     border-bottom: 0;
