@@ -1,5 +1,9 @@
 import * as actionTypes from "./actionTypes.js";
-import { getDjCategoryRequest, getDjProgramRecommendRequest, getDjProgramTopRequest } from "@/api/request";
+import {
+  getDjCategoryRequest,
+  getDjProgramRecommendRequest,
+  getDjProgramTopRequest,
+} from "@/api/request";
 
 export const changeDjCategoryRequest = (data) => ({
   type: actionTypes.CHANGE_DJ_CATEGORY,
@@ -11,11 +15,17 @@ export const changeDjRecommendRequest = (data) => ({
   payload: data,
 });
 
+export const changeDjProgramTopRequest = (data) => ({
+  type: actionTypes.CHANGE_DJ_PROGRAM_TOP,
+  payload: data,
+});
+
+// -------------------
 export const getDjCategoryList = () => {
   return (dispatch) => {
     getDjCategoryRequest()
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         dispatch(changeDjCategoryRequest(data.categories));
       })
       .catch(() => {
@@ -33,6 +43,19 @@ export const getDjRecommendList = () => {
       })
       .catch(() => {
         console.log("推荐节目数据传输错误");
+      });
+  };
+};
+
+export const getDjProgramTopList = () => {
+  return (dispatch) => {
+    getDjProgramTopRequest()
+      .then((data) => {
+        console.log(data);
+        dispatch(changeDjProgramTopRequest(data));
+      })
+      .catch(() => {
+        console.log("排行榜数据传输错误");
       });
   };
 };
