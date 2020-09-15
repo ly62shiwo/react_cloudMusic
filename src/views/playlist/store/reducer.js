@@ -18,10 +18,6 @@ export default (state = defaultState, action) => {
     case actionTypes.CHANGE_HOT_COMMEND:
         return Object.assign({}, state, { hotCommendList: payload.playlists, query: { total: payload.total , page: payload.page} });
 
-
-
-
-
     default:
       return state;
   }

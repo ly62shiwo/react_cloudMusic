@@ -1,0 +1,52 @@
+@import '@/style/variable.scss';
+@import '@/style/mixin.scss';
+
+.u-icn {
+    background-image: url(../../assets/icon.png);
+}
+
+
+.rankZero {
+    font-size: $font-s;
+    color: $font-color-grey9;
+
+    .icn- {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        margin: 0 2px -1px 0;
+        background-position: -74px -276px;
+    }
+}
+
+.rankAdd {
+    font-size: $font-s;
+    color: $font-color-add;
+
+    .icnadd {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        margin-bottom: 1px;
+        background-position: -74px -304px;
+    }
+}
+
+.rankCut {
+    font-size: $font-s;
+    color: $font-color-cut;
+
+    .icncut {
+        display: inline-block;
+        width: 6px;
+        height: 7px;
+        background-position: -74px -324px;
+    }
+}
+
+.icnnew {
+    display: inline-block;
+    width: 16px;
+    height: 17px;
+    background-position: -67px -283px;
+}

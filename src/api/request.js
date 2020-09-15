@@ -5,7 +5,7 @@ export const getBannerRequest = () => {
 };
 // 热门推荐
 export const getHotCommendRequest = (data) => {
-  // ?limit=10&offset=1&order=new/hot&cat:tag--华语，欧美
+  // `offset=${(page - 1) * 35}&limit=35&cat=${ }`
   return axiosInstance.get(`/top/playlist?${data}`);
 };
 // 新碟上架
@@ -44,6 +44,8 @@ export const getDjProgramRecommendRequest = () => {
 export const getDjProgramTopRequest = () => {
   return axiosInstance.get(`/dj/program/toplist`);
 };
-
-
-
+// 电台类别热门
+// let data = `offset=${(page - 1) * 24}&limit=24&cateId=${}`;
+export const getDjHotRadioRequest = (data) => {
+  return axiosInstance.get(`/dj/radio/hot?${data}`);
+};

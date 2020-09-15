@@ -8,7 +8,7 @@
 .djradio {
   width: 980px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 20px 20px;
   border-left: 1px solid $border-color-bottom;
   border-right: 1px solid $border-color-bottom;
   background-color: $background-color-theme1;
@@ -103,52 +103,6 @@
         .notop {
           color: $font-color-grey9;
         }
-
-        .rankZero {
-          font-size: $font-s;
-          color: $font-color-grey9;
-
-          .icn- {
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            margin: 0 2px -1px 0;
-            background-position: -74px -276px;
-          }
-        }
-
-        .rankAdd {
-          font-size: $font-s;
-          color: $font-color-add;
-
-          .icnadd {
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            margin-bottom: 1px;
-            background-position: -74px -304px;
-          }
-        }
-
-        .rankCut {
-          font-size: $font-s;
-          color: $font-color-cut;
-
-          .icncut {
-            display: inline-block;
-            width: 6px;
-            height: 7px;
-            background-position: -74px -324px;
-          }
-        }
-
-        .icnnew {
-          display: inline-block;
-          width: 16px;
-          height: 17px;
-          background-position: -67px -283px;
-
-        }
       }
 
 
@@ -202,4 +156,108 @@
 
 
 
+}
+
+
+.hotdjradio {
+  margin-top: 10px;
+
+  .radioRanking {
+    font-size: $font-xxl + 4px;
+    float: left;
+  }
+
+  .rightNo {
+    float: right;
+    font-size: $font-s;
+    color: $font-color-grey6;
+
+  }
+
+  .hotRadioList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border-top: 2px solid $border-color-bottom1;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 435px;
+      padding: 20px 0;
+      border-bottom: 1px solid $border-color-bottom3;
+
+      .info {
+        margin-left: 20px;
+
+        .name {
+          font-size: $font-xl;
+          font-weight: 700;
+          margin-bottom: 20px;
+
+          a {
+            display: block;
+            color: $font-color-dark;
+          }
+
+          a:hover {
+            @include hover
+          }
+
+        }
+
+        .djname {
+          // display: block;
+          font-size: $font-s;
+          padding-bottom: 10px;
+          display: flex;
+          align-items: center;
+
+          .user-icn {
+            display: inline-block;
+            margin-right: 10px;
+            width: 14px;
+            height: 15px;
+            background: url(../../assets/icon.png) -50px -300px;
+          }
+
+          .music-icn {
+            display: inline-block;
+            margin-left: 3px;
+            width: 12px;
+            height: 13px;
+            background: url(../../assets/icon2.png) -110px -190px;
+          }
+
+          a {
+            color: $font-color-dark0;
+          }
+
+          a:hover {
+            @include hover
+          }
+        }
+
+        p {
+          font-size: $font-s;
+          color: $font-color-grey9;
+
+        }
+      }
+    }
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+
+.show {
+  display: none
 }

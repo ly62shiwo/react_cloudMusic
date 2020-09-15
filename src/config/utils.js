@@ -1,4 +1,5 @@
-export const getCount = (count) => {
+//播放量处理
+const getCount = (count) => {
   if (count < 0) return;
   if (count < 10000) {
     return count;
@@ -10,7 +11,7 @@ export const getCount = (count) => {
 };
 
 // 歌手名处理 无跳转
-export const getName = (list) => {
+const getName = (list) => {
   let str = "";
   list.map((item, index) => {
     str += index === 0 ? item.name : "/" + item.name;
@@ -20,15 +21,23 @@ export const getName = (list) => {
 };
 
 // 时间戳转换为时间
-export const timestamp = (time) => {
+const timestamp = (time) => {
   let getDate = new Date(time);
 
   if ((time + "").length > 12) {
     return getDate.getMonth() + 1 + "月" + getDate.getDate() + "日";
   } else {
-    let minute = getDate.getMinutes() < 10 ? '0' + getDate.getMinutes() : getDate.getMinutes()
-    let second = getDate.getSeconds() < 10 ? '0' + getDate.getSeconds() : getDate.getSeconds()
-    return minute + ':' + second
+    let minute =
+      getDate.getMinutes() < 10
+        ? "0" + getDate.getMinutes()
+        : getDate.getMinutes();
+    let second =
+      getDate.getSeconds() < 10
+        ? "0" + getDate.getSeconds()
+        : getDate.getSeconds();
+    return minute + ":" + second;
   }
-
 };
+
+
+export { timestamp, getName, getCount };

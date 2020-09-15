@@ -3,6 +3,7 @@ import {
   getDjCategoryRequest,
   getDjProgramRecommendRequest,
   getDjProgramTopRequest,
+  getDjHotRadioRequest,
 } from "@/api/request";
 
 export const changeDjCategoryRequest = (data) => ({
@@ -17,6 +18,11 @@ export const changeDjRecommendRequest = (data) => ({
 
 export const changeDjProgramTopRequest = (data) => ({
   type: actionTypes.CHANGE_DJ_PROGRAM_TOP,
+  payload: data,
+});
+
+export const changeDjHotRadioRequest = (data) => ({
+  type: actionTypes.CHANGE_DJ_HOT_RADIO,
   payload: data,
 });
 
@@ -51,11 +57,25 @@ export const getDjProgramTopList = () => {
   return (dispatch) => {
     getDjProgramTopRequest()
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         dispatch(changeDjProgramTopRequest(data));
       })
       .catch(() => {
         console.log("排行榜数据传输错误");
+      });
+  };
+};
+
+export const getDjHotRadioList = (query, page) => {
+  return (dispatch) => {
+    getDjHotRadioRequest(query)
+      .then((data) => {
+        data.page = page || 1
+        console.log(data);
+        dispatch(changeDjHotRadioRequest(data));
+      })
+      .catch(() => {
+        console.log("热门类别数据传输错误");
       });
   };
 };

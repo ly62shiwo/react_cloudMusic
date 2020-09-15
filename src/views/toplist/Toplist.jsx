@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actionType from "./store/actionCreators";
 import { timestamp } from "@/config/utils";
-// import { Spin } from "antd";
+// import RankCount from "@/component/rankCount";
 import "./styles.scss";
 
 function Toplist(props) {
@@ -25,7 +25,7 @@ function Toplist(props) {
   const songList = () => {
     let arr = [];
     Object.assign(arr, playListDetail.tracks);
-
+    console.log(playListDetail);
     return (
       <div className='songList'>
         <div className='title'>
@@ -54,7 +54,10 @@ function Toplist(props) {
                     className={(index + 1) % 2 === 0 ? "odd" : ""}
                     style={{ height: 70 }}
                   >
-                    <td style={{ flex: 1 }}>{index + 1}</td>
+                    <td style={{ flex: 1 }}>
+                      {index + 1}
+                      {/* <RankCount rank={item.rank} lastRank={item.lastRank} /> */}
+                    </td>
                     <td style={{ flex: 5 }} className='songName'>
                       <div className='topImg'>
                         <Link style={{ border: 0 }} to={`song?id=${item.id}`}>
@@ -81,7 +84,10 @@ function Toplist(props) {
                     className={(index + 1) % 2 === 0 ? "odd" : ""}
                     style={{ height: 30 }}
                   >
-                    <td style={{ flex: 1 }}>{index + 1}</td>
+                    <td style={{ flex: 1 }}>
+                      {index + 1}
+                      {/* <RankCount rank={item.rank} lastRank={item.lastRank} /> */}
+                    </td>
                     <td style={{ flex: 5 }} className='songName'>
                       <span
                         className='playIcon'

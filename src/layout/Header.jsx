@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { navMenus, navMenusTwo } from "@/config/navMenus.js";
 import "./header.scss";
 
 function Header(props) {
-  // console.log(props, "header");
+  console.log(props, "header");
   const [select, setSelect] = useState("discover");
 
   useEffect(() => {
@@ -98,4 +98,4 @@ function Header(props) {
   );
 }
 
-export default Header;
+export default withRouter(Header);
