@@ -1,0 +1,158 @@
+@import '@/style/variable.scss';
+@import '@/style/mixin.scss';
+
+.artist {
+    display: flex;
+    border-left: 1px solid $border-color-bottom3;
+
+    .leftCategory {
+        width: 180px;
+        min-height: 700px;
+        padding: 40px 5px;
+
+        .leftbox {
+            padding-top: 15px;
+            border-top: 1px solid $border-color-bottom;
+
+            .country {
+                padding-left: 14px;
+                font-size: $font-l;
+                padding-bottom: 5px;
+            }
+
+            ul {
+                margin-bottom: 10px;
+            }
+
+            li {
+                background: url(../../assets/singer.png) 0 -30px;
+
+                .cat-flag,
+                .z-slt {
+                    display: block;
+                    color: $font-color-dark;
+                    font-size: $font-s;
+                    width: 160px;
+                    height: 29px;
+                    line-height: 29px;
+                    padding-left: 27px;
+                }
+
+                .cat-flag:hover {
+                    @include hover
+                }
+
+                .z-slt {
+                    color: $font-color-red;
+                    z-index: 10;
+                    background: url(../../assets/singer.png) 0 0;
+
+                    .cat-flag:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+
+        .leftbox:first-child {
+            padding-top: 0;
+            border: 0;
+        }
+    }
+
+    .rightSinger {
+        width: 800px;
+        min-height: 700px;
+        border-left: 1px solid $border-color-bottom3;
+        border-right: 1px solid $border-color-bottom3;
+        padding: 40px;
+        background-color: $background-color-theme1;
+
+        .hotNav {
+            height: 40px;
+            line-height: 30px;
+            padding-bottom: 10px;
+
+            .goCommend {
+                font-size: $font-xxl + 4px;
+            }
+
+        }
+
+        .ul-sin {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            a {
+                color: $font-color-dark0;
+                font-size: $font-m;
+                @include oneTextHidden
+            }
+
+            a:hover {
+                @include hover
+            }
+
+            li {
+                position: relative;
+
+                .iconSinger {
+                    width: 17px;
+                    height: 18px;
+                    display: block;
+                    background: url(../../assets/icon.png) 0 -740px;
+                }
+
+                .topTen {
+                    padding: 20px 0 10px 0;
+
+                    img {
+                        width: 130px;
+                        height: 130px;
+                    }
+
+                    .iconSinger {
+                        float: right;
+                    }
+
+                    .mark {
+                        position: absolute;
+                        left: 0;
+                        width: 130px;
+                        height: 130px;
+                        background: url(../../assets/coverall.png) 0 -680px;
+                    }
+                }
+
+                .notop {
+                    width: 130px;
+                    margin-top: 15px;
+                    display: flex;
+                }
+            }
+        }
+
+        .letter {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+
+            span {
+                color: $font-color-dark0;
+                font-size: $font-m;
+                padding: 0 5px;
+            }
+
+            .let-slt {
+                background: $font-color-red;
+                border-radius: 3px;
+                color: $font-color-white;
+            }
+        }
+
+
+    }
+
+}

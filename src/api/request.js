@@ -16,14 +16,11 @@ export const getNewDiscShelfRequest = () => {
 export const getLeaderboardRequest = () => {
   return axiosInstance.get(`/toplist`);
 };
-// 热门歌手
-export const getHotSingerRequest = (count, num) => {
-  return axiosInstance.get(`/top/artists?offset=${count}&limit=${num}`);
-};
 // 热门主播榜
 export const getHotAnchorRequest = (num) => {
   return axiosInstance.get(`/dj/toplist/popular?limit=${num}`);
 };
+
 // 歌单详情
 export const getPlayListDetailRequest = (id) => {
   return axiosInstance.get(`/playlist/detail?id=${id}`);
@@ -32,6 +29,7 @@ export const getPlayListDetailRequest = (id) => {
 export const getCatListCategoryRequest = () => {
   return axiosInstance.get(`/playlist/catlist`);
 };
+
 // 电台分类
 export const getDjCategoryRequest = () => {
   return axiosInstance.get(`/dj/catelist`);
@@ -48,4 +46,13 @@ export const getDjProgramTopRequest = () => {
 // let data = `offset=${(page - 1) * 24}&limit=24&cateId=${}`;
 export const getDjHotRadioRequest = (data) => {
   return axiosInstance.get(`/dj/radio/hot?${data}`);
+};
+
+// 热门歌手
+export const getHotSingerRequest = (count, num) => {
+  return axiosInstance.get(`/top/artists?offset=${count}&limit=${num}`);
+};
+// 歌手分类列表  type=1&area=96&initial=b
+export const getSingerCategoryRequest = (data) => {
+  return axiosInstance.get(`/artist/list?${data}`);
 };

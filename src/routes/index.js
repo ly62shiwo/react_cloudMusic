@@ -57,7 +57,7 @@ export default [
       },
       {
         path: "/discover/artist",
-        exact: true,
+        // exact: true,
         component: SuspenseComponent(Artist),
       },
       {

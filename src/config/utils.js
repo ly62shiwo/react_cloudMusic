@@ -39,5 +39,4 @@ const timestamp = (time) => {
   }
 };
 
-
 export { timestamp, getName, getCount };

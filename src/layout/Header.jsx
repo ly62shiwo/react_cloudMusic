@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { navMenus, navMenusTwo } from "@/config/navMenus.js";
 import "./header.scss";
 
 function Header(props) {
-  console.log(props, "header");
+  // console.log(props, "header");
   const [select, setSelect] = useState("discover");
+  // pathname 处理
+  const pathnameDispose = (path) => {
+    if (path !== "/discover") {
+      let arr = path.split("/");
+      let c = "/" + arr[1] + "/" + arr[2];
+      return c;
+    } else {
+      return "/discover";
+    }
+  };
 
   useEffect(() => {
     if (props.location.pathname === "/download") {
@@ -20,12 +30,10 @@ function Header(props) {
       {/* nav导航 */}
       <div className='nav'>
         <div className='wrap'>
-          <Link to='/'>
-            <h1 className='logo'></h1>
-          </Link>
+          <Link to='/' className='logo'></Link>
           <ul className='navUl'>
             {navMenus.map((item) => {
-              return item.target ? (
+              return (
                 <li
                   key={item.key}
                   className='navLi'
@@ -36,32 +44,12 @@ function Header(props) {
                   <Link
                     className={select === item.key ? "action" : null}
                     to={item.path}
-                    // target="_blank"
                   >
                     {item.title}
                   </Link>
                   <span
                     className={select === item.key ? "sanjiao" : null}
                   ></span>
-                </li>
-              ) : (
-                <li
-                  key={item.key}
-                  className='navLi'
-                  onClick={() => {
-                    setSelect(item.key);
-                  }}
-                >
-                  <Link
-                    className={select === item.key ? "action" : null}
-                    to={item.path}
-                  >
-                    {item.title}
-                  </Link>
-                  {item.title === "下载客户端" ? (
-                    <span className='hotIcon'></span>
-                  ) : null}
-                  <div className={select === item.key ? "sanjiao" : null}></div>
                 </li>
               );
             })}
@@ -78,7 +66,9 @@ function Header(props) {
                     <li key={item.key} className='navLiTwo'>
                       <Link
                         className={
-                          props.location.pathname === item.path ? "actionTwo"   : null
+                          pathnameDispose(props.location.pathname) === item.path
+                            ? "actionTwo"
+                            : null
                         }
                         to={item.path}
                       >
@@ -98,4 +88,4 @@ function Header(props) {
   );
 }
 
-export default withRouter(Header);
+export default Header;

@@ -8,7 +8,7 @@ import "./djradio.scss";
 
 function Djradio(props) {
   // console.log(props);
-
+  // location: {pathname: "/discover/djradio/category", search: "?id=7
   const { djCategory, djRecommendList, djProgramTop, djHotRadio } = props;
   const {
     getDjCategoryDispatch,
@@ -19,14 +19,23 @@ function Djradio(props) {
 
   const { query, hotRadioList } = djHotRadio;
 
-  const [selectCategory, setSelectCategory] = useState("");
+  // const [selectCategory, setSelectCategory] = useState();
   const [categoryId, setCategoryID] = useState();
 
   useEffect(() => {
-    getDjCategoryDispatch();
-    getDjRecommendDispatch();
-    getDjProgramTopListDispatch();
-
+    if (!djCategory.length || !djRecommendList.length || !djProgramTop) {
+      getDjCategoryDispatch();
+      getDjRecommendDispatch();
+      getDjProgramTopListDispatch();
+    }
+    let id = props.location.search.slice(4);
+    if (id) {
+      let data = `offset=${(query.page - 1) * 21}&limit=21&cateId=${id}`;
+      getDjHotRadioListDispatch(data);
+    }
+    if (props.location.pathname.indexOf("category") !== -1) {
+      setCategoryID(Number(id));
+    }
     //eslint-disable-next-line
   }, []);
 
@@ -53,12 +62,10 @@ function Djradio(props) {
                   <Link
                     to={`/discover/djradio/category?id=${item.id}`}
                     className={
-                      selectCategory === item.name
-                        ? "z-sel specific"
-                        : "specific"
+                      categoryId === item.id ? "z-sel specific" : "specific"
                     }
                     onClick={() => {
-                      setSelectCategory(item.name);
+                      setCategoryID(item.id);
                       getDjHotRadio(item.id);
                     }}
                   >
