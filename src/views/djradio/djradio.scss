@@ -75,7 +75,8 @@
     @include hover
   }
 
-  .box {
+  .box,
+  .allbox {
     width: 100%;
     margin-top: 5px;
     border: 1px solid $border-color-bottom3;
@@ -94,7 +95,6 @@
       .order {
         width: 47px;
         text-align: center;
-        // margin: 0 10px;
 
         .topRed {
           color: $font-color-red;
@@ -105,8 +105,8 @@
         }
       }
 
-
-      .name {
+      .name,
+      .allname {
         font-size: $font-s;
         width: 65%;
         margin-left: 10px;
@@ -151,9 +151,32 @@
       background-color: $background-color-theme2;
     }
 
-
   }
 
+  .allbox {
+
+    a {
+      display: block;
+      font-size: $font-s;
+      color: $font-color-dark;
+      @include oneTextHidden;
+    }
+
+    h3 {
+      a {
+        width: 304px;
+        margin: 0 10px;
+      }
+    }
+
+    .playVolume, .favour {
+      width: 100px;
+      margin-left: 20px;
+      font-size: $font-s;
+      color: $font-color-grey9;
+    }
+
+  }
 
 
 }
