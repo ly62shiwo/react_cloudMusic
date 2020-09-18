@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { singerMenus, alphaTypes } from "@/config/navMenus";
-import * as actionType from "./store/actionCreators";
+import { getSingerCategoryList, getHotSingerList } from "./store";
 
 import "./style.scss";
 
@@ -71,7 +71,7 @@ function Artist(props) {
           );
         })}
       </div>
-
+      {/* 右侧 */}
       <div className='rightSinger'>
         {props.location.pathname === "/discover/artist" ? (
           //右侧热门歌手
@@ -79,6 +79,7 @@ function Artist(props) {
             <div className='hotNav'>
               <span className='goCommend'>热门歌手</span>
             </div>
+            {/* 歌手列表 */}
             <ul className='ul-sin'>
               {hotSingerList.map((item, index) => {
                 return (
@@ -175,10 +176,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getSingerCategoryDispatch(data) {
-      dispatch(actionType.getSingerCategoryList(data));
+      dispatch(getSingerCategoryList(data));
     },
     getHotSingerListDispatch(count, num) {
-      dispatch(actionType.getHotSingerList(count, num));
+      dispatch(getHotSingerList(count, num));
     },
   };
 };

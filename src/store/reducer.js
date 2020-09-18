@@ -4,6 +4,7 @@ import { reducer as toplistReducer } from "../views/toplist/store/index";
 import { reducer as playListReducer } from "../views/playlist/store/index";
 import { reducer as djradioReducer } from "../views/djradio/store/index";
 import { reducer as artistReducer } from "../views/artist/store/index";
+import { reducer as albumReducer } from "../views/album/store/index";
 
 export default combineReducers({
   discover: discoverReducer,
@@ -11,4 +12,5 @@ export default combineReducers({
   playlist: playListReducer,
   djradio: djradioReducer,
   artist: artistReducer,
+  album: albumReducer,
 });

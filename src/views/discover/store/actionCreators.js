@@ -64,9 +64,9 @@ export const getHotCommendList = () => {
   };
 };
 
-export const getNewDiscShelfList = () => {
+export const getNewDiscShelfList = (query) => {
   return (dispatch) => {
-    getNewDiscShelfRequest()
+    getNewDiscShelfRequest(query)
       .then((data) => {
         dispatch(changeNewDiscShelfRequest(data.monthData));
       })

@@ -148,3 +148,9 @@ a {
         @include hover
     }
 }
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+  }

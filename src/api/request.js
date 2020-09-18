@@ -9,8 +9,12 @@ export const getHotCommendRequest = (data) => {
   return axiosInstance.get(`/top/playlist?${data}`);
 };
 // 新碟上架
-export const getNewDiscShelfRequest = () => {
-  return axiosInstance.get(`/top/album?&limit=10`);
+export const getNewDiscShelfRequest = (data) => {
+  return axiosInstance.get(`/top/album?${data}`);
+};
+// 全部新碟
+export const getAllNewDiscRequest = (data) => {
+  return axiosInstance.get(`/album/new?${data}`);
 };
 // 榜单
 export const getLeaderboardRequest = () => {
@@ -36,7 +40,7 @@ export const getDjCategoryRequest = () => {
 };
 // 电台推荐节目
 export const getDjProgramRecommendRequest = () => {
-  return axiosInstance.get(`/program/recommend`);
+  return axiosInstance.get(`/program/recommend?limit=50`);
 };
 // 电台节目排行榜
 export const getDjProgramTopRequest = () => {

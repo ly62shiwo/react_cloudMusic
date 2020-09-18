@@ -51,9 +51,10 @@ function Djradio(props) {
     getDjHotRadioListDispatch(data, page);
     window.scrollTo(0, 0);
   };
-  // rditop
-  return (
-    <div className='djradio'>
+
+  // 电台类型
+  const topBanner = () => {
+    return (
       <ul className='banner'>
         {djCategory.length
           ? djCategory.map((item) => {
@@ -80,7 +81,12 @@ function Djradio(props) {
             })
           : ""}
       </ul>
-      {/* 节目推荐、排行 */}
+    );
+  };
+
+  // 节目推荐、排行
+  const commendProgram = () => {
+    return (
       <div
         className={
           props.location.pathname.indexOf("category") === -1 ? "rditop" : "show"
@@ -89,16 +95,16 @@ function Djradio(props) {
         {/* 推荐节目 */}
         <div className='leftCommend'>
           <div className='hotNav' style={{ border: 0 }}>
-            <Link to='djradio/recommend' className='goCommend'>
+            <Link to='/discover/djradio/recommend' className='goCommend'>
               推荐节目
             </Link>
-            <Link to='djradio/recommend' className='goMore'>
+            <Link to='/discover/djradio/recommend' className='goMore'>
               更多 &gt;
             </Link>
           </div>
           <ul className='box'>
             {djRecommendList.length
-              ? djRecommendList.map((item, index) => {
+              ? djRecommendList.slice(0, 10).map((item, index) => {
                   return (
                     <li
                       key={item.id}
@@ -135,10 +141,10 @@ function Djradio(props) {
         {/* 节目排行榜 */}
         <div className='rightTop'>
           <div className='hotNav' style={{ border: 0 }}>
-            <Link to='' className='goCommend'>
+            <Link to='/discover/djradio/rank' className='goCommend'>
               节目排行榜
             </Link>
-            <Link to='' className='goMore'>
+            <Link to='/discover/djradio/rank' className='goMore'>
               更多 &gt;
             </Link>
           </div>
@@ -177,8 +183,12 @@ function Djradio(props) {
           </ul>
         </div>
       </div>
+    );
+  };
 
-      {/* 电台排行榜 */}
+  // 电台排行榜
+  const radioTop = () => {
+    return (
       <div
         className={
           props.location.pathname.indexOf("category") !== -1
@@ -196,18 +206,20 @@ function Djradio(props) {
             ? hotRadioList.map((item, index) => {
                 return (
                   <li key={item.id}>
-                    <a href=''>
+                    <Link to={`/djradio?id=${item.id}`}>
                       <img src={item.picUrl + `?param=120y120`} alt='' />
-                    </a>
+                    </Link>
 
                     <div className='info'>
                       <h3 className='name'>
-                        <a href='#'>{item.name}</a>
+                        <Link to={`/djradio?id=${item.id}`}>{item.name}</Link>
                       </h3>
 
                       <span className='djname'>
                         <i className='user-icn'></i>
-                        <a href='#'>{item.dj.nickname}</a>
+                        <Link to={`/user/home?id=${item.dj.userId}`}>
+                          {item.dj.nickname}
+                        </Link>
                         <i className='music-icn'></i>
                       </span>
 
@@ -231,6 +243,71 @@ function Djradio(props) {
           showSizeChanger={false}
         />
       </div>
+    );
+  };
+
+  const aaaa = () => {
+    return (
+      <div>
+        {/* 推荐节目 */}
+        <div>
+          <div className='hotNav' style={{ border: 0 }}>
+            <span className='goCommend'>推荐节目</span>
+            <span style={{ fontSize: 12, color: "#999", paddingLeft: 10 }}>
+              (每日更新)
+            </span>
+          </div>
+          <ul className='box'>
+            {djRecommendList.length
+              ? djRecommendList.slice(0, 10).map((item, index) => {
+                  return (
+                    <li
+                      key={item.id}
+                      className={(index + 1) % 2 === 0 ? "odd itm" : "itm"}
+                    >
+                      <img src={item.coverUrl + `?param=40x40"`} alt='' />
+
+                      <h3>
+                        <Link to={`/program?id=${item.id}`}>
+                          {item.mainSong.name}
+                        </Link>
+                      </h3>
+
+                      <p>
+                        <Link to={`/djradio?id=${item.radio.id}`}>
+                          {item.radio.name}
+                        </Link>
+                      </p>
+
+                      <span>播放1111</span>
+
+                      <span>赞11</span>
+
+
+                      <Link
+                        to={`djradio/category?id=${item.radio.categoryId}`}
+                        className='tag'
+                      >
+                        {item.radio.category}
+                      </Link>
+                    </li>
+                  );
+                })
+              : ""}
+          </ul>
+        </div>
+      </div>
+    );
+  };
+  return (
+    <div className='djradio'>
+      {topBanner()}
+
+      {commendProgram()}
+
+      {radioTop()}
+
+      {aaaa()}
     </div>
   );
 }

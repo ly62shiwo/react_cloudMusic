@@ -1,0 +1,71 @@
+@import '@/style/variable.scss';
+@import '@/style/mixin.scss';
+
+.album {
+    padding: 40px;
+    border-left: 1px solid $border-color-bottom;
+    border-right: 1px solid $border-color-bottom;
+
+    .hotNav {
+        display: flex;
+        height: 40px;
+        line-height: 30px;
+        padding-bottom: 10px;
+
+        .goCommend {
+            font-size: $font-xxl + 4px;
+            padding-right: 20px;
+        }
+
+        .iteName {
+            font-size: $font-s;
+            color: $font-color-grey6;
+            cursor:pointer;
+        }
+        .iteName:hover {
+            @include hover
+        }
+
+        .line {
+            margin: 0 10px;
+            color: #c7c7c7;
+        }
+
+    }
+}
+
+.newDiscList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.imgBgc {
+    width: 153px;
+    height: 130px;
+    background: url(../../assets/coverall.png) 0 -845px;
+}
+
+img {
+    box-shadow: 0 3px 5px #888888;
+}
+
+.newDiscName {
+    width: 130px;
+    @include oneTextHidden;
+
+    .name {
+        color: $font-color-grey6;
+    }
+
+    a {
+        font-size: $font-m;
+        color: $font-color-dark0;
+        line-height: 1.5;
+    }
+
+    a:hover {
+        @include hover
+    }
+}
