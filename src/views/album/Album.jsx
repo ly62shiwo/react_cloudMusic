@@ -18,6 +18,7 @@ function Album(props) {
     // 全部新碟
     let data = `offset=${(query.page - 1) * 35}&limit=35&area=all`;
     getAllNewDiscDispatch(data);
+    //eslint-disable-next-line
   }, []);
 
   const region = [

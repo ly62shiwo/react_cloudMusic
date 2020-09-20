@@ -29,6 +29,8 @@
             height: 204px;
 
             .commendName {
+                display: block;
+                margin-top: 6px;
                 color: $font-color-dark0;
                 font-size: $font-m;
             }

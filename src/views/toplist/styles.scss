@@ -139,7 +139,7 @@
           display: flex;
           align-items: center;
           justify-content: flex-start;
-          box-sizing: border-box;
+
           .topImg {
             float: left;
             margin-right: 10px;
@@ -147,21 +147,28 @@
 
           .playIcon {
             display: block;
-            width: 20px;
-            height: 20px;
+            width: 17px;
+            height: 17px;
             background: url(../../assets/index.png) -267px -268px;
           }
 
           .playIcon:hover {
             background: url(../../assets/index.png) -267px -288px;
           }
-          // a {
-          //     padding: 0 10px;
-          // }
-          .alia {
-            color: $font-color-grey6;
+
+          p {
+            max-width: 260px;
             @include oneTextHidden;
+
+            a {
+              margin: 0 10px;
+            }
+
+            .alia {
+              color: $font-color-alia;
+            }
           }
+
         }
 
         .odd {

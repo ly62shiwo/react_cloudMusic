@@ -19,6 +19,7 @@ function Artist(props) {
     if (!hotSingerList.length) {
       getHotSingerListDispatch(0, 100);
     }
+    //eslint-disable-next-line
   }, []);
 
   // 歌手获取

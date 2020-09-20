@@ -108,6 +108,20 @@
                 .topTen {
                     padding: 20px 0 10px 0;
 
+                    p {
+                        display: flex;
+                        justify-content: space-between;
+                        padding-top: 6px;
+
+                        a {
+                            max-width: 100px;
+                            @include oneTextHidden;
+                        }
+                    }
+
+
+
+
                     img {
                         width: 130px;
                         height: 130px;
@@ -130,6 +144,11 @@
                     width: 130px;
                     margin-top: 15px;
                     display: flex;
+
+                    a {
+                        max-width: 110px;
+                        padding-right: 3px;
+                    }
                 }
             }
         }

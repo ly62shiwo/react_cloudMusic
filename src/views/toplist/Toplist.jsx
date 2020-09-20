@@ -25,7 +25,7 @@ function Toplist(props) {
   const songList = () => {
     let arr = [];
     Object.assign(arr, playListDetail.tracks);
-    console.log(playListDetail);
+    // console.log(playListDetail);
     return (
       <div className='songList'>
         <div className='title'>
@@ -71,7 +71,10 @@ function Toplist(props) {
                         className='playIcon'
                         onClick={() => console.log("播放")}
                       ></span>
-                      <Link to={`song?id=${item.id}`}>{item.name}</Link>
+                      <p style={{maxWidth: 200}}>
+                        <Link to={`song?id=${item.id}`}>{item.name}</Link>
+                        <span className='alia'>{item.alia}</span>
+                      </p>
                     </td>
                     <td style={{ flex: 2 }}>{timestamp(item.dt)}</td>
                     <td style={{ flex: 3 }}> {singerName(item.ar)} </td>
@@ -89,13 +92,14 @@ function Toplist(props) {
                       {/* <RankCount rank={item.rank} lastRank={item.lastRank} /> */}
                     </td>
                     <td style={{ flex: 5 }} className='songName'>
-                      <span
+                      <div
                         className='playIcon'
                         onClick={() => console.log("播放")}
-                      ></span>
-                      <Link to={`song?id=${item.id}`}>{item.name}</Link>
-
-                      <span className='alia'>{item.alia}</span>
+                      ></div>
+                      <p>
+                        <Link to={`song?id=${item.id}`}>{item.name}</Link>
+                        <span className='alia'>{item.alia}</span>
+                      </p>
                     </td>
                     <td style={{ flex: 2 }}>{timestamp(item.dt)}</td>
                     <td style={{ flex: 3 }}> {singerName(item.ar)} </td>
