@@ -146,14 +146,15 @@
           }
 
           .playIcon {
-            display: block;
+            // display: block;
             width: 17px;
             height: 17px;
-            background: url(../../assets/index.png) -267px -268px;
+            background: url(../../assets/table.png) 0 -103px;
           }
 
           .playIcon:hover {
-            background: url(../../assets/index.png) -267px -288px;
+            background: url(../../assets/table.png) 0 -128px;
+            
           }
 
           p {

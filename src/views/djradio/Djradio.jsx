@@ -9,7 +9,7 @@ import { timestamp } from "@/config/utils";
 import "./djradio.scss";
 
 function Djradio(props) {
-  console.log(props);
+  // console.log(props);
   // location: {pathname: "/discover/djradio/category", search: "?id=7
   const { djCategory, djRecommendList, djProgramTop, djHotRadio } = props;
   const {
@@ -20,7 +20,6 @@ function Djradio(props) {
   } = props;
 
   const { query, hotRadioList } = djHotRadio;
-
   // const [selectCategory, setSelectCategory] = useState();
   const [categoryId, setCategoryID] = useState();
 
@@ -298,7 +297,7 @@ function Djradio(props) {
             节目排行榜
           </Link>
           <span style={{ fontSize: 12, color: "#999", paddingLeft: 10 }}>
-            最近更新：{timestamp(djProgramTop.updateTime)}
+            最近更新：{timestamp(djProgramTop.updateTime,"date")}
           </span>
           {/* updateTime */}
         </div>

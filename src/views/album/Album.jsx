@@ -7,7 +7,7 @@ import { Pagination } from "antd";
 import "./style.scss";
 
 function Album(props) {
-  console.log(props);
+  // console.log(props);
   const { query, allNewDiscList, newDiscShelfList } = props;
   const { getAllNewDiscDispatch, getNewDiscShelfDispatch } = props;
 

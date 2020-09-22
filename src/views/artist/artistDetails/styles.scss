@@ -1,0 +1,335 @@
+@import '@/style/variable.scss';
+@import '@/style/mixin.scss';
+
+.show {
+    display: none;
+}
+
+.artistDetails {
+    position: relative;
+    width: 980px;
+    margin: 0 auto;
+    // padding: 30px 30px;
+    border-left: 1px solid $font-color-ccc;
+    border-right: 1px solid $font-color-ccc;
+    background-color: $background-color-theme1;
+
+    .left {
+        width: 709px;
+        padding: 47px 30px 40px 39px;
+        border-right: 1px solid $border-color-bottom;
+
+        .topArtist {
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+
+            h2 {
+                max-width: 100%;
+                height: 34px;
+                line-height: 24px;
+                font-weight: normal;
+                font-size: $font-xxl + 4px;
+                color: $font-color-dark;
+            }
+
+            h3 {
+                max-width: 23%;
+                padding-left: 10px;
+                font-size: $font-m;
+                line-height: 32px;
+                color: $font-color-grey9;
+                font-weight: normal;
+            }
+
+            .mask {
+                position: absolute;
+                bottom: 0;
+                width: 640px;
+                height: 300px;
+                background: url(../../../assets/ban_mask.png) 0 0;
+            }
+        }
+
+        .tabs {
+            display: flex;
+            width: 640px;
+            height: 40px;
+            margin-bottom: 20px;
+            background-color: $background-color-theme;
+
+            li {
+                padding: 10px 0;
+                cursor: pointer;
+                width: 130px;
+                text-align: center;
+                font-size: $font-m;
+            }
+
+            .bgc {
+                border: 1px solid #ccc;
+                border-top: 2px solid $border-color-bottom1;
+                border-bottom: 0;
+                background-color: $background-color-theme1;
+            }
+
+        }
+
+        .m-table {
+            // width: 640px;
+            box-sizing: border-box;
+
+            .rank {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                color: $font-color-alia;
+
+                span:first-child {
+                    padding-left: 3px;
+                }
+
+                .playIcon {
+                    display: block;
+                    width: 17px;
+                    height: 17px;
+                    background: url(../../../assets/table.png) 0 -103px;
+                }
+
+                .playIcon:hover {
+                    background: url(../../../assets/table.png) 0 -128px;
+                }
+            }
+
+            .songName {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+
+                .topImg {
+                    float: left;
+                    margin-right: 10px;
+                }
+
+                p {
+                    @include oneTextHidden;
+
+                    a {
+                        margin: 0 10px;
+                    }
+
+                    .alia {
+                        color: $font-color-alia;
+                    }
+                }
+
+            }
+
+            .odd {
+                background-color: #f7f7f7;
+            }
+
+            a {
+                color: $font-color-dark;
+                @include oneTextHidden;
+            }
+
+            a:hover {
+                @include hover
+            }
+
+            tr {
+                display: flex;
+                font-size: $font-s;
+                width: 640px;
+
+                th {
+                    display: flex;
+                    color: $font-color-grey6;
+                    padding: 10px 5px;
+                    border-left: 1px solid $border-color-bottom;
+                    border-bottom: 1px solid $border-color-bottom;
+                }
+
+                td {
+                    margin: auto;
+                    padding: 5px;
+                    @include oneTextHidden;
+                }
+            }
+        }
+
+        .newDiscList {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+
+            li {
+                margin-right: 19px;
+
+                .imgBgc {
+                    width: 145px;
+                    height: 120px;
+                    background: url(../../../assets/coverall.png) -170px -850px;
+                }
+
+                img {
+                    box-shadow: 0 3px 5px #888888;
+                }
+
+                .newDiscName {
+                    width: 130px;
+                    margin-top: 6px;
+                    @include oneTextHidden;
+
+                    span {
+                        font-size: $font-s;
+                        color: $font-color-grey6;
+                    }
+
+                    a {
+                        font-size: $font-m;
+                        color: $font-color-dark0;
+                        line-height: 1.5;
+                    }
+
+                    a:hover {
+                        @include hover
+                    }
+                }
+            }
+        }
+
+        .newDiscList :nth-child(4n) {
+            margin-right: 0;
+        }
+
+        .relevanceMv {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+
+            .mvli {
+                width: 137px;
+                height: 140px;
+                margin-right: 29px;
+
+                .mvimg {
+                    position: relative;
+
+                    .mark {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: url(../../../assets/coverall.png) 0 -1170px;
+                    }
+
+                    .icon-play {
+                        display: block;
+                        position: absolute;
+                        z-index: 10;
+                        width: 44px;
+                        height: 44px;
+                        top: 50%;
+                        left: 50%;
+                        margin: -22px 0 0 -22px;
+                        background: url(../../../assets/iconall.png) -30px -135px;
+                    }
+
+                    .icon-play:hover {
+                        background: url(../../../assets/iconall.png) -30px -85px;
+                    }
+                }
+
+
+
+                a {
+                    display: block;
+                    width: 100%;
+                    font-size: $font-m;
+                    line-height: 1.5;
+                    color: $font-color-dark0;
+                    @include oneTextHidden
+                }
+
+                a:hover {
+                    @include hover
+                }
+            }
+        }
+
+        .relevanceMv :nth-child(4n) {
+            margin-right: 0;
+        }
+
+
+        .introduce {
+            .synopsis {
+                border-left: 2px solid $border-color-bottom1;
+                padding-left: 5px;
+
+            }
+
+            h2 {
+                font-size: $font-m;
+                font-weight: 900;
+                margin-top: 28px;
+                margin-bottom: 5px;
+                // color: $font-color-dark;
+            }
+
+            p {
+                line-height: 25px;
+                color: #666;
+                font-size: $font-s;
+            }
+        }
+
+        .introduce:first p {}
+    }
+
+    .right {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 270px;
+        padding: 20px 40px 40px 30px;
+
+        h2 {
+            font-size: $font-s;
+            font-weight: 900;
+            border-bottom: 1px solid $font-color-ccc;
+            padding-bottom: 8px;
+        } 
+
+        .ul-sin {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding-top: 15px;
+
+            .hot-singer {
+                padding-right: 8px;
+                padding-bottom: 15px;
+
+                a {
+                    display: block;
+                    text-align: center;
+                    max-width: 50px;
+                    color: $font-color-dark0;
+                    font-size: $font-s;
+                    @include oneTextHidden;
+                    line-height: 1.5;
+                }
+
+                a:hover {
+                    @include hover
+                }
+
+            }
+        }
+    }
+}

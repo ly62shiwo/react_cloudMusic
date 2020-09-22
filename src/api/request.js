@@ -60,3 +60,23 @@ export const getHotSingerRequest = (count, num) => {
 export const getSingerCategoryRequest = (data) => {
   return axiosInstance.get(`/artist/list?${data}`);
 };
+// 获取歌手单曲
+export const getSingerSingleRequest = (id) => {
+  return axiosInstance.get(`/artists?id=${id}`);
+};
+// 获取歌手专辑
+export const getSingerAlbumRequest = (data) => {
+  return axiosInstance.get(`/artist/album?${data}`);
+};
+// 获取歌手 mv
+export const getSingerMvRequest = (data) => {
+  return axiosInstance.get(`/artist/mv?${data}`);
+};
+// 获取歌手描述
+export const getSingerDescribeRequest = (id) => {
+  return axiosInstance.get(`/artist/desc?id=${id}`);
+};
+
+
+
+

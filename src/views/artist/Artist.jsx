@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { singerMenus, alphaTypes } from "@/config/navMenus";
@@ -7,7 +7,7 @@ import { getSingerCategoryList, getHotSingerList } from "./store";
 import "./style.scss";
 
 function Artist(props) {
-  console.log(props);
+  // console.log(props);
   const { hotSingerList, singerCategoryList } = props;
   const { getSingerCategoryDispatch, getHotSingerListDispatch } = props;
 
@@ -16,8 +16,20 @@ function Artist(props) {
   const [sinCatName, setSinCatName] = useState();
 
   useEffect(() => {
-    if (!hotSingerList.length) {
-      getHotSingerListDispatch(0, 100);
+    getHotSingerListDispatch(0, 100);
+    // 判断 url id 获取对应数据
+    let id = props.location.search.slice(4);
+    // console.log(id);
+    if (id) {
+      for (let i = 0; i < singerMenus.length; i++) {
+        singerMenus[i].list.map((item) => {
+          if (item.id === Number(id)) {
+            changeSingerCategory(item.key, "-1");
+            setSinCatName(item.title);
+            setBg(item.key);
+          }
+        });
+      }
     }
     //eslint-disable-next-line
   }, []);
@@ -118,6 +130,7 @@ function Artist(props) {
               {alphaTypes.map((item) => {
                 return (
                   <li
+                    key={item.key}
                     onClick={() => {
                       setLetterBg(item.key);
                       changeSingerCategory(bg, item.key);

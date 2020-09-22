@@ -193,16 +193,15 @@ function Playlist(props) {
                 <div className='playBgi'>
                   <span className='earphoneIcon'></span>
                   <span className='playCount'>{getCount(item.playCount)}</span>
-
                   <span
                     className='playIcon'
                     onClick={() => console.log(item.id)}
                   ></span>
                 </div>
-
                 <div className='commendName'>
                   <Link to={`/playlist?id=${item.id}`}>{item.name}</Link>
                 </div>
+                <p className='bynickname'>by {item.creator.nickname}</p>
               </div>
             );
           })}

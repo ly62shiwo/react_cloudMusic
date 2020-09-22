@@ -12,5 +12,6 @@ export default combineReducers({
   playlist: playListReducer,
   djradio: djradioReducer,
   artist: artistReducer,
+  // artistDetails: artistReducer,
   album: albumReducer,
 });

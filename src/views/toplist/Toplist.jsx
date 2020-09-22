@@ -9,7 +9,7 @@ import "./styles.scss";
 function Toplist(props) {
   const { leaderBoardList, playListDetail } = props;
   const { getLeaderboardDispatch, getPlayLisDetailDispatch } = props; // dispatch
-  // console.log(props, "toplist");
+  console.log(props, "toplist");
 
   const [select, setSelect] = useState(19723756);
   const [updateTimeName, setUpdateTimeName] = useState("每天更新");
@@ -76,7 +76,7 @@ function Toplist(props) {
                         <span className='alia'>{item.alia}</span>
                       </p>
                     </td>
-                    <td style={{ flex: 2 }}>{timestamp(item.dt)}</td>
+                    <td style={{ flex: 2 }}>{timestamp(item.dt, ":")}</td>
                     <td style={{ flex: 3 }}> {singerName(item.ar)} </td>
                   </tr>
                 );
@@ -101,7 +101,7 @@ function Toplist(props) {
                         <span className='alia'>{item.alia}</span>
                       </p>
                     </td>
-                    <td style={{ flex: 2 }}>{timestamp(item.dt)}</td>
+                    <td style={{ flex: 2 }}>{timestamp(item.dt,':')}</td>
                     <td style={{ flex: 3 }}> {singerName(item.ar)} </td>
                   </tr>
                 );
@@ -140,7 +140,7 @@ function Toplist(props) {
                   <div key={item.id}>
                     <li
                       className={
-                        Number(props.location.search.slice(4)) === item.id
+                        Number(props.location.search.slice(4) || 19723756) === item.id
                           ? "bgc"
                           : null
                       }
@@ -183,7 +183,7 @@ function Toplist(props) {
             <div className='updateTime'>
               <span className='icon'></span>
               最近更新：
-              <span>{timestamp(playListDetail.updateTime)}</span>
+              <span>{timestamp(playListDetail.updateTime, "date")}</span>
               <span style={{ marginLeft: 10, color: "#999" }}>
                 ({updateTimeName})
               </span>

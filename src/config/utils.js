@@ -21,12 +21,11 @@ const getName = (list) => {
 };
 
 // 时间戳转换为时间
-const timestamp = (time) => {
+const timestamp = (time, pattern) => {
   let getDate = new Date(time);
-
-  if ((time + "").length > 12) {
+  if (pattern === "date") {
     return getDate.getMonth() + 1 + "月" + getDate.getDate() + "日";
-  } else {
+  } else if (pattern === ":") {
     let minute =
       getDate.getMinutes() < 10
         ? "0" + getDate.getMinutes()
@@ -36,7 +35,15 @@ const timestamp = (time) => {
         ? "0" + getDate.getSeconds()
         : getDate.getSeconds();
     return minute + ":" + second;
+  } else if (pattern === ".") {
+    return (
+      getDate.getFullYear() +
+      "." +
+      (getDate.getMonth() + 1) +
+      "." +
+      getDate.getDate()
+    );
   }
 };
-
+// 13
 export { timestamp, getName, getCount };
