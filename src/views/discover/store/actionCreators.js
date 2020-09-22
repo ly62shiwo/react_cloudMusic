@@ -106,7 +106,7 @@ export const getHotAnchorList = (num) => {
   return (dispatch) => {
     getHotAnchorRequest(num)
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         dispatch(changeHotAnchorRequest(data.data.list));
       })
       .catch(() => {

@@ -7,7 +7,7 @@ import { Pagination } from "antd";
 import "./playlist.scss";
 
 function Playlist(props) {
-  console.log(props, "Playlist");
+  // console.log(props, "Playlist");
 
   const { catList, category, hotCommendList, query } = props;
   const { getCatListDispatch, getHotCommendDispatch } = props;

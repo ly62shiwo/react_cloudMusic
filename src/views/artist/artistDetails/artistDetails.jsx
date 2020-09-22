@@ -17,7 +17,7 @@ import { Pagination } from "antd";
 import "./styles.scss";
 
 function ArtistDetails(props) {
-  console.log(props, "ArtistDetails");
+  // console.log(props, "ArtistDetails");
 
   useEffect(() => {
     let singerId = location.search.slice(4);

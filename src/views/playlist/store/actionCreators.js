@@ -30,7 +30,7 @@ export const getHotCommend = (query, page) => {
     getHotCommendRequest(query)
     .then((data) => {
       data.page = page || 1
-      console.log(data);
+      // console.log(data);
       dispatch(changeHotCommendRequest(data));
     })
     .catch(() => {
