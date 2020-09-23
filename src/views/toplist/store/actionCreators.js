@@ -38,3 +38,13 @@ export const getPlayLisDetailList = (id) => {
       });
   };
 };
+
+export const changeTopLoading = (data) => {
+  return (dispatch) => {
+    console.log('true');
+    dispatch({
+      type: actionTypes.CHANGE_TOP_LOADING,
+      payload: data,
+    });
+  };
+};

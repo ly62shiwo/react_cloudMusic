@@ -3,6 +3,7 @@ import * as actionTypes from "./actionTypes";
 const defaultState = {
   leaderBoardList: [],
   playListDetail: [],
+  loadingTop: false
 };
 
 export default (state = defaultState, action) => {
@@ -11,7 +12,10 @@ export default (state = defaultState, action) => {
     case actionTypes.GET_LEADERBOARD:
       return Object.assign({}, state, { leaderBoardList: payload });
     case actionTypes.GET_PLAYLIST_DETAIL:
-      return Object.assign({}, state, { playListDetail: payload.playlist });
+      return Object.assign({}, state, { playListDetail: payload.playlist , loadingTop: false });
+      
+    case actionTypes.CHANGE_TOP_LOADING:
+      return Object.assign({}, state, { loadingTop: payload });
 
     default:
       return state;

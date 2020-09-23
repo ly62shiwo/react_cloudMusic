@@ -1,0 +1,193 @@
+@import '@/style/variable.scss';
+@import '@/style/mixin.scss';
+
+.lefttop .mask {
+    background: url(../../../assets/coverall.png)
+}
+
+.icon-playlists {
+    background: url(../../../assets/icon.png)
+}
+
+.playListDetails {
+    position: relative;
+    width: 980px;
+    margin: 0 auto;
+    // padding: 30px 30px;
+    border-left: 1px solid $font-color-ccc;
+    border-right: 1px solid $font-color-ccc;
+    background-color: $background-color-theme1;
+
+    .left {
+        width: 709px;
+        padding: 47px 30px 40px 39px;
+        border-right: 1px solid $border-color-bottom;
+
+        .lefttop {
+            position: relative;
+            display: flex;
+
+            .mask {
+                position: absolute;
+                top: -4px;
+                left: -4px;
+                width: 208px;
+                height: 208px;
+                background-position: 0 -1285px;
+            }
+
+            .left-introduce {
+                margin-left: 25px;
+
+                .left-title {
+                    display: flex;
+                    align-items: center;
+
+                    .icon-playlists {
+                        display: block;
+                        width: 54px;
+                        height: 24px;
+                        background-position: 0 -243px;
+                    }
+                    h2 {
+                        margin-left: 10px;
+                        line-height: 24px;
+                        font-size: $font-xxl;
+                        font-weight: normal;
+                    }
+                }
+
+            }
+        }
+
+
+
+        .m-table {
+            // width: 640px;
+            box-sizing: border-box;
+
+            .rank {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                color: $font-color-alia;
+
+                span:first-child {
+                    padding-left: 3px;
+                }
+
+                .playIcon {
+                    display: block;
+                    width: 17px;
+                    height: 17px;
+                    background: url(../../../assets/table.png) 0 -103px;
+                }
+
+                .playIcon:hover {
+                    background: url(../../../assets/table.png) 0 -128px;
+                }
+            }
+
+            .songName {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+
+                .topImg {
+                    float: left;
+                    margin-right: 10px;
+                }
+
+                p {
+                    @include oneTextHidden;
+
+                    a {
+                        margin: 0 10px;
+                    }
+
+                    .alia {
+                        color: $font-color-alia;
+                    }
+                }
+
+            }
+
+            .odd {
+                background-color: #f7f7f7;
+            }
+
+            a {
+                color: $font-color-dark;
+                @include oneTextHidden;
+            }
+
+            a:hover {
+                @include hover
+            }
+
+            tr {
+                display: flex;
+                font-size: $font-s;
+                width: 640px;
+
+                th {
+                    display: flex;
+                    color: $font-color-grey6;
+                    padding: 10px 5px;
+                    border-left: 1px solid $border-color-bottom;
+                    border-bottom: 1px solid $border-color-bottom;
+                }
+
+                td {
+                    margin: auto;
+                    padding: 5px;
+                    @include oneTextHidden;
+                }
+            }
+        }
+
+    }
+
+    .right {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 270px;
+        padding: 20px 40px 40px 30px;
+
+        h2 {
+            font-size: $font-s;
+            font-weight: 900;
+            border-bottom: 1px solid $font-color-ccc;
+            padding-bottom: 8px;
+        }
+
+        .ul-sin {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding-top: 15px;
+
+            .hot-singer {
+                padding-right: 8px;
+                padding-bottom: 15px;
+
+                a {
+                    display: block;
+                    text-align: center;
+                    max-width: 50px;
+                    color: $font-color-dark0;
+                    font-size: $font-s;
+                    @include oneTextHidden;
+                    line-height: 1.5;
+                }
+
+                a:hover {
+                    @include hover
+                }
+
+            }
+        }
+    }
+}

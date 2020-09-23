@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actionType from "./store/actionCreators";
 import { timestamp } from "@/config/utils";
+import { Spin } from "antd";
 // import RankCount from "@/component/rankCount";
 import "./styles.scss";
 
 function Toplist(props) {
-  const { leaderBoardList, playListDetail } = props;
+  const { leaderBoardList, playListDetail, loadingTop } = props;
   const { getLeaderboardDispatch, getPlayLisDetailDispatch } = props; // dispatch
   // console.log(props, "toplist");
-
   const [select, setSelect] = useState(19723756);
   const [updateTimeName, setUpdateTimeName] = useState("每天更新");
 
@@ -35,80 +35,81 @@ function Toplist(props) {
             播放: <strong>{playListDetail.playCount}</strong> 次
           </span>
         </div>
-
-        <table className='m-table'>
-          <thead>
-            <tr>
-              <th style={{ flex: 1, borderLeft: 0 }}></th>
-              <th style={{ flex: 5 }}>标题</th>
-              <th style={{ flex: 2 }}>时长</th>
-              <th style={{ flex: 3 }}>歌手</th>
-            </tr>
-          </thead>
-          <tbody>
-            {arr.map((item, index) => {
-              if (index < 3) {
-                return (
-                  <tr
-                    key={item.id}
-                    className={(index + 1) % 2 === 0 ? "odd" : ""}
-                    style={{ height: 70 }}
-                  >
-                    <td style={{ flex: 1 }}>
-                      {index + 1}
-                      {/* <RankCount rank={item.rank} lastRank={item.lastRank} /> */}
-                    </td>
-                    <td style={{ flex: 5 }} className='songName'>
-                      <div className='topImg'>
-                        <Link style={{ border: 0 }} to={`song?id=${item.id}`}>
-                          <img
-                            src={item.al.picUrl + "?param=50y50&quality=100"}
-                            alt=''
-                          />
-                        </Link>
-                      </div>
-                      <span
-                        className='playIcon'
-                        onClick={() => console.log("播放")}
-                      ></span>
-                      <p style={{maxWidth: 200}}>
-                        <Link to={`song?id=${item.id}`}>{item.name}</Link>
-                        <span className='alia'>{item.alia}</span>
-                      </p>
-                    </td>
-                    <td style={{ flex: 2 }}>{timestamp(item.dt, ":")}</td>
-                    <td style={{ flex: 3 }}> {singerName(item.ar)} </td>
-                  </tr>
-                );
-              } else {
-                return (
-                  <tr
-                    key={item.id}
-                    className={(index + 1) % 2 === 0 ? "odd" : ""}
-                    style={{ height: 30 }}
-                  >
-                    <td style={{ flex: 1 }}>
-                      {index + 1}
-                      {/* <RankCount rank={item.rank} lastRank={item.lastRank} /> */}
-                    </td>
-                    <td style={{ flex: 5 }} className='songName'>
-                      <div
-                        className='playIcon'
-                        onClick={() => console.log("播放")}
-                      ></div>
-                      <p>
-                        <Link to={`song?id=${item.id}`}>{item.name}</Link>
-                        <span className='alia'>{item.alia}</span>
-                      </p>
-                    </td>
-                    <td style={{ flex: 2 }}>{timestamp(item.dt,':')}</td>
-                    <td style={{ flex: 3 }}> {singerName(item.ar)} </td>
-                  </tr>
-                );
-              }
-            })}
-          </tbody>
-        </table>
+        <Spin spinning={loadingTop}>
+          <table className='m-table'>
+            <thead>
+              <tr>
+                <th style={{ flex: 1, borderLeft: 0 }}></th>
+                <th style={{ flex: 5 }}>标题</th>
+                <th style={{ flex: 2 }}>时长</th>
+                <th style={{ flex: 3 }}>歌手</th>
+              </tr>
+            </thead>
+            <tbody>
+              {arr.map((item, index) => {
+                if (index < 3) {
+                  return (
+                    <tr
+                      key={item.id}
+                      className={(index + 1) % 2 === 0 ? "odd" : ""}
+                      style={{ height: 70 }}
+                    >
+                      <td style={{ flex: 1 }}>
+                        {index + 1}
+                        {/* <RankCount rank={item.rank} lastRank={item.lastRank} /> */}
+                      </td>
+                      <td style={{ flex: 5 }} className='songName'>
+                        <div className='topImg'>
+                          <Link style={{ border: 0 }} to={`song?id=${item.id}`}>
+                            <img
+                              src={item.al.picUrl + "?param=50y50&quality=100"}
+                              alt=''
+                            />
+                          </Link>
+                        </div>
+                        <span
+                          className='playIcon'
+                          onClick={() => console.log("播放")}
+                        ></span>
+                        <p style={{ maxWidth: 200 }}>
+                          <Link to={`song?id=${item.id}`}>{item.name}</Link>
+                          <span className='alia'>{item.alia}</span>
+                        </p>
+                      </td>
+                      <td style={{ flex: 2 }}>{timestamp(item.dt, ":")}</td>
+                      <td style={{ flex: 3 }}> {singerName(item.ar)} </td>
+                    </tr>
+                  );
+                } else {
+                  return (
+                    <tr
+                      key={item.id}
+                      className={(index + 1) % 2 === 0 ? "odd" : ""}
+                      style={{ height: 30 }}
+                    >
+                      <td style={{ flex: 1 }}>
+                        {index + 1}
+                        {/* <RankCount rank={item.rank} lastRank={item.lastRank} /> */}
+                      </td>
+                      <td style={{ flex: 5 }} className='songName'>
+                        <div
+                          className='playIcon'
+                          onClick={() => console.log("播放")}
+                        ></div>
+                        <p>
+                          <Link to={`song?id=${item.id}`}>{item.name}</Link>
+                          <span className='alia'>{item.alia}</span>
+                        </p>
+                      </td>
+                      <td style={{ flex: 2 }}>{timestamp(item.dt, ":")}</td>
+                      <td style={{ flex: 3 }}> {singerName(item.ar)} </td>
+                    </tr>
+                  );
+                }
+              })}
+            </tbody>
+          </table>
+        </Spin>
       </div>
     );
   };
@@ -140,7 +141,8 @@ function Toplist(props) {
                   <div key={item.id}>
                     <li
                       className={
-                        Number(props.location.search.slice(4) || 19723756) === item.id
+                        Number(props.location.search.slice(4) || 19723756) ===
+                        item.id
                           ? "bgc"
                           : null
                       }
@@ -202,6 +204,7 @@ const mapStateToProps = (state) => {
   return {
     leaderBoardList: state.toplist.leaderBoardList,
     playListDetail: state.toplist.playListDetail,
+    loadingTop: state.toplist.loadingTop,
   };
 };
 // 映射dispatch到props上
@@ -213,6 +216,7 @@ const mapDispatchToProps = (dispatch) => {
 
     getPlayLisDetailDispatch(id) {
       dispatch(actionType.getPlayLisDetailList(id));
+      dispatch(actionType.changeTopLoading(true));
     },
   };
 };

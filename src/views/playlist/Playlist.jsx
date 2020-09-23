@@ -3,13 +3,13 @@ import { connect } from "react-redux";
 import * as actionType from "./store/actionCreators";
 import { Link } from "react-router-dom";
 import { getCount } from "@/config/utils";
-import { Pagination } from "antd";
+import { Pagination, Spin } from "antd";
 import "./playlist.scss";
 
 function Playlist(props) {
   // console.log(props, "Playlist");
 
-  const { catList, category, hotCommendList, query } = props;
+  const { catList, category, hotCommendList, query, loading } = props;
   const { getCatListDispatch, getHotCommendDispatch } = props;
 
   const [showChooseCategory, setChooseCategory] = useState(false);
@@ -19,8 +19,14 @@ function Playlist(props) {
     if (!catList.length || !category.length) {
       getCatListDispatch();
     }
-    let data = `offset=${(query.page - 1) * 35}&limit=35`;
-    getHotCommendDispatch(data);
+    if (!hotCommendList.length) {
+      let data = `offset=${(query.page - 1) * 35}&limit=35`;
+      getHotCommendDispatch(data);
+    }
+    if (props.location.search.slice(5)) {
+      setcatName(decodeURI(props.location.search.slice(5)) )
+      getHotCommendDispatch(`limit=35&cat=${props.location.search.slice(5)}`);
+    }
     //eslint-disable-next-line
   }, []);
 
@@ -155,6 +161,9 @@ function Playlist(props) {
   const changePagination = (page) => {
     let data = `offset=${(page - 1) * 35}&limit=35&cat=${catName}`;
     getHotCommendDispatch(data, page);
+
+
+
     window.scrollTo(0, 0);
   };
   return (
@@ -182,30 +191,35 @@ function Playlist(props) {
           {/* 风格 */}
           <div>{showChooseCategory === true ? chooseCategory() : null}</div>
         </div>
-        {/* 列表 */}
-        <div className='hotCommendCard'>
-          {hotCommendList.map((item) => {
-            return (
-              <div className='picture' key={item.id}>
-                <Link to={`/playlist?id=${item.id}`}>
-                  <img src={item.coverImgUrl + "?param=140y140"} alt='' />
-                </Link>
-                <div className='playBgi'>
-                  <span className='earphoneIcon'></span>
-                  <span className='playCount'>{getCount(item.playCount)}</span>
-                  <span
-                    className='playIcon'
-                    onClick={() => console.log(item.id)}
-                  ></span>
+        <Spin spinning={loading}>
+          {/* 列表 */}
+          <div className='hotCommendCard'>
+            {hotCommendList.map((item) => {
+              return (
+                <div className='picture' key={item.id}>
+                  <Link to={`/playlist?id=${item.id}`}>
+                    <img src={item.coverImgUrl + "?param=140y140"} alt='' />
+                  </Link>
+                  <div className='playBgi'>
+                    <span className='earphoneIcon'></span>
+                    <span className='playCount'>
+                      {getCount(item.playCount)}
+                    </span>
+                    <span
+                      className='playIcon'
+                      onClick={() => console.log(item.id)}
+                    ></span>
+                  </div>
+                  <div className='commendName'>
+                    <Link to={`/playlist?id=${item.id}`}>{item.name}</Link>
+                  </div>
+                  <p className='bynickname'>by {item.creator.nickname}</p>
                 </div>
-                <div className='commendName'>
-                  <Link to={`/playlist?id=${item.id}`}>{item.name}</Link>
-                </div>
-                <p className='bynickname'>by {item.creator.nickname}</p>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        </Spin>
+
         {/* 分页 */}
         <Pagination
           className='pagination'
@@ -227,6 +241,7 @@ const mapStateToProps = (state) => {
     category: state.playlist.category,
     hotCommendList: state.playlist.hotCommendList,
     query: state.playlist.query,
+    loading: state.playlist.loading,
   };
 };
 // 映射dispatch到props上
@@ -237,6 +252,7 @@ const mapDispatchToProps = (dispatch) => {
     },
     getHotCommendDispatch(query, page) {
       dispatch(actionType.getHotCommend(query, page));
+      dispatch(actionType.changeLoading(true))
     },
   };
 };

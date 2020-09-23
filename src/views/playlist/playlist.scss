@@ -128,17 +128,17 @@
   .hotCommendCard {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
     width: 100%;
-    min-height: 600px;
     padding-top: 10px;
     margin-bottom: 20px;
     overflow: hidden;
 
     .picture {
       position: relative;
-      margin: 10px 19px;
+      margin-right: 50px;
+      margin-top: 20px;
       width: 140px;
+      height: 188px;
       line-height: 1.5;
 
       img {
@@ -205,5 +205,10 @@
         }
       }
     }
+
+  }
+
+  .hotCommendCard :nth-child(5n) {
+    margin-right: 0px;
   }
 }

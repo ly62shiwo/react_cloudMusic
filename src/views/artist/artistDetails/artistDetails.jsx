@@ -24,6 +24,13 @@ function ArtistDetails(props) {
     if (!hotSingerList.length) {
       getHotSingerDispatch(0, 6);
     }
+    getData(singerId);
+
+    window.scrollTo(0, 0);
+    //eslint-disable-next-line
+  }, []);
+
+  const getData = (singerId) => {
     getSingerSingleDispatch(singerId);
     getSingerDescribeDispatch(singerId);
     let dataAlbum = `id=${singerId}&offset=${
@@ -35,10 +42,7 @@ function ArtistDetails(props) {
       (singerMvQuery.page - 1) * 12
     }&limit=500`;
     getSingerMvDispatch(dataMv);
-
-    window.scrollTo(0, 0);
-    //eslint-disable-next-line
-  }, []);
+  };
 
   const [clBgc, setclBgc] = useState("1");
   // dispatch
@@ -232,9 +236,14 @@ function ArtistDetails(props) {
         <div>
           <h2>热门歌手</h2>
           <ul className='ul-sin'>
-            {hotSingerList.slice(0,6).map((item, index) => {
+            {hotSingerList.slice(0, 6).map((item, index) => {
               return (
-                <li key={item.id}>
+                <li
+                  key={item.id}
+                  onClick={() => {
+                    getData(item.id);
+                  }}
+                >
                   <div className='hot-singer'>
                     <Link to={`/artist?id=${item.id}`}>
                       <img src={`${item.img1v1Url}?param=50y50`} alt='' />
