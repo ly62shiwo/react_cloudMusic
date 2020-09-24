@@ -62,8 +62,7 @@ function Discover(props) {
               </Link>
             </div>
             <div className='hotCommendCard'>
-              {hotCommendList.length
-                ? hotCommendList.map((item) => {
+              { hotCommendList.map((item) => {
                     return (
                       <div className='picture' key={item.id}>
                         <Link to={`/playlist?id=${item.id}`}>
@@ -91,8 +90,7 @@ function Discover(props) {
                         
                       </div>
                     );
-                  })
-                : null}
+                  })}
             </div>
           </div>
 
@@ -111,8 +109,7 @@ function Discover(props) {
               </Link>
             </div>
             <div className='leaderBoardCard'>
-              {leaderboardList.length
-                ? leaderboardList.map((item) => {
+              {leaderboardList.map((item) => {
                     return (
                       <div className='listDetails' key={item.id}>
                         <Link to={`/discover/toplist?id=${item.id}`}>
@@ -137,8 +134,7 @@ function Discover(props) {
                         </div>
                       </div>
                     );
-                  })
-                : null}
+                  })}
             </div>
           </div>
         </div>
@@ -161,8 +157,7 @@ function Discover(props) {
               <span>热门歌手</span>
               <Link to='discover/artist'>查看全部 {">"} </Link>
             </div>
-            {hotSingerList.length
-              ? hotSingerList.map((item) => {
+            {hotSingerList.map((item) => {
                   return (
                     <Link to={`/artist?id=${item.id}`} key={item.id}>
                       <div className='singerDetail'>
@@ -171,8 +166,7 @@ function Discover(props) {
                       </div>
                     </Link>
                   );
-                })
-              : null}
+                })}
           </div>
           <div className='anchor'>
             <div className='anchorNav'>
@@ -180,8 +174,7 @@ function Discover(props) {
             </div>
 
             <ul className='anchorList'>
-              {hotAnchorList.length
-                ? hotAnchorList.map((item) => {
+              { hotAnchorList.map((item) => {
                     return (
                       <li key={item.id}>
                         <Link to={`/user/home?id=${item.id}`}>
@@ -199,8 +192,7 @@ function Discover(props) {
                         <span></span>
                       </li>
                     );
-                  })
-                : null}
+                  })}
             </ul>
           </div>
         </div>

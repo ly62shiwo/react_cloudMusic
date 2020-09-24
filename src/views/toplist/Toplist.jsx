@@ -22,7 +22,7 @@ function Toplist(props) {
   }, []);
 
   // 列表
-  const songList = () => {
+  function SongList() {
     let arr = [];
     Object.assign(arr, playListDetail.tracks);
     // console.log(playListDetail);
@@ -76,7 +76,7 @@ function Toplist(props) {
                           <span className='alia'>{item.alia}</span>
                         </p>
                       </td>
-                      <td style={{ flex: 2 }}>{timestamp(item.dt, ":")}</td>
+                      <td style={{ flex: 2 }}>{timestamp(item.dt, "colon")}</td>
                       <td style={{ flex: 3 }}> {singerName(item.ar)} </td>
                     </tr>
                   );
@@ -101,7 +101,7 @@ function Toplist(props) {
                           <span className='alia'>{item.alia}</span>
                         </p>
                       </td>
-                      <td style={{ flex: 2 }}>{timestamp(item.dt, ":")}</td>
+                      <td style={{ flex: 2 }}>{timestamp(item.dt, "colon")}</td>
                       <td style={{ flex: 3 }}> {singerName(item.ar)} </td>
                     </tr>
                   );
@@ -112,7 +112,7 @@ function Toplist(props) {
         </Spin>
       </div>
     );
-  };
+  }
   // 列表歌手名处理
   const singerName = (item) => {
     if (item.length > 1) {
@@ -135,41 +135,37 @@ function Toplist(props) {
       <div className='leftDiv'>
         <h2>云音乐特色榜</h2>
         <ul>
-          {leaderBoardList.length
-            ? leaderBoardList.map((item) => {
-                return (
-                  <div key={item.id}>
-                    <li
-                      className={
-                        Number(props.location.search.slice(4) || 19723756) ===
-                        item.id
-                          ? "bgc"
-                          : null
-                      }
-                      onClick={() => {
-                        setSelect(item.id);
-                        getPlayLisDetailDispatch(item.id);
-                        setUpdateTimeName(item.updateFrequency);
-                        window.scrollTo(0, 0);
-                      }}
-                    >
-                      <Link to={`/discover/toplist?id=${item.id}`}>
-                        <img src={item.coverImgUrl + "?param=40y40"} alt='' />
-                        <div className='leftTopName'>
-                          <span style={{ color: "black" }}>{item.name}</span>
-                          <span style={{ color: "#666" }}>
-                            {item.updateFrequency}
-                          </span>
-                        </div>
-                      </Link>
-                    </li>
-                    {item.name === "云音乐热歌榜" ? (
-                      <h2>云音乐特色榜</h2>
-                    ) : null}
-                  </div>
-                );
-              })
-            : null}
+          {leaderBoardList.map((item) => {
+            return (
+              <div key={item.id}>
+                <li
+                  className={
+                    Number(props.location.search.slice(4) || 19723756) ===
+                    item.id
+                      ? "bgc"
+                      : null
+                  }
+                  onClick={() => {
+                    setSelect(item.id);
+                    getPlayLisDetailDispatch(item.id);
+                    setUpdateTimeName(item.updateFrequency);
+                    window.scrollTo(0, 0);
+                  }}
+                >
+                  <Link to={`/discover/toplist?id=${item.id}`}>
+                    <img src={item.coverImgUrl + "?param=40y40"} alt='' />
+                    <div className='leftTopName'>
+                      <span style={{ color: "black" }}>{item.name}</span>
+                      <span style={{ color: "#666" }}>
+                        {item.updateFrequency}
+                      </span>
+                    </div>
+                  </Link>
+                </li>
+                {item.name === "云音乐热歌榜" ? <h2>云音乐特色榜</h2> : null}
+              </div>
+            );
+          })}
         </ul>
       </div>
       {/* ------------------------- */}
@@ -194,7 +190,7 @@ function Toplist(props) {
           </div>
         </div>
         {/* 右侧歌曲列表 */}
-        {songList()}
+        <SongList />
       </div>
     </div>
   );

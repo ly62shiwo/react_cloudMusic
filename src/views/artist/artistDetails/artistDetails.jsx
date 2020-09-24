@@ -4,6 +4,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { timestamp } from "@/config/utils";
+import { Pagination } from "antd";
 import {
   getSingerSingleList,
   getSingerAlbumList,
@@ -11,9 +13,6 @@ import {
   getSingerDescribe,
   getHotSingerList,
 } from "../store";
-import { timestamp } from "@/config/utils";
-import { Pagination } from "antd";
-
 import "./styles.scss";
 
 function ArtistDetails(props) {
@@ -144,7 +143,7 @@ function ArtistDetails(props) {
                       <span className='alia'>{item.alia}</span>
                     </p>
                   </td>
-                  <td style={{ flex: 2 }}>{timestamp(item.dt, ":")}</td>
+                  <td style={{ flex: 2 }}>{timestamp(item.dt, "colon")}</td>
                   <td style={{ flex: 3 }}>
                     <Link to={`album?id=${item.al.id}`}>{item.al.name}</Link>
                   </td>
@@ -169,7 +168,7 @@ function ArtistDetails(props) {
                       {item.name}
                     </Link>
                     <br />
-                    <span>{timestamp(item.publishTime, ".")}</span>
+                    <span>{timestamp(item.publishTime, "line")}</span>
                   </div>
                 </li>
               );

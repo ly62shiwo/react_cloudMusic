@@ -23,27 +23,25 @@ const getName = (list) => {
 // 时间戳转换为时间
 const timestamp = (time, pattern) => {
   let getDate = new Date(time);
-  if (pattern === "date") {
-    return getDate.getMonth() + 1 + "月" + getDate.getDate() + "日";
-  } else if (pattern === ":") {
-    let minute =
-      getDate.getMinutes() < 10
-        ? "0" + getDate.getMinutes()
-        : getDate.getMinutes();
-    let second =
-      getDate.getSeconds() < 10
-        ? "0" + getDate.getSeconds()
-        : getDate.getSeconds();
-    return minute + ":" + second;
-  } else if (pattern === ".") {
-    return (
-      getDate.getFullYear() +
-      "." +
-      (getDate.getMonth() + 1) +
-      "." +
-      getDate.getDate()
-    );
-  }
+
+  let year = getDate.getFullYear();
+  let minute = getDate.getMinutes();
+  let second = getDate.getSeconds();
+  let month = getDate.getMonth() + 1;
+  let day = getDate.getDate();
+
+  const addZero = (num) => {
+    return num < 10 ? `0${num}` : num;
+  };
+
+  const dispose = {
+    date: `${addZero(month)}月${addZero(day)}日`, // 月 日
+    colon: addZero(minute) + ":" + addZero(second), // :
+    point: `${year}.${addZero(month)}.${addZero(day)}`, // .
+    line: `${year}-${addZero(month)}-${addZero(day)}`, // -
+  };
+
+  return dispose[pattern] || {};
 };
-// 13
+
 export { timestamp, getName, getCount };

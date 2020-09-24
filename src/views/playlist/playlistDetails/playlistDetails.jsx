@@ -17,6 +17,7 @@ function PlaylistDetails(props) {
   useEffect(() => {
     let id = location.search.slice(4);
     getPlayListDetailDispatch(id);
+    
   }, []);
 
   return (
@@ -36,7 +37,7 @@ function PlaylistDetails(props) {
             <div>
               <img src={creator.avatarUrl + "?param=40y40"} alt='' />
               <Link>{creator.nickname}</Link>
-              <span>{timestamp(playListDetail.createTime, ".")}创建</span>
+              <span>{timestamp(playListDetail.createTime, "point")}创建</span>
             </div>
           </div>
         </div>

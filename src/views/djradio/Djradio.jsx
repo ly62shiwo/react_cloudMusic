@@ -29,6 +29,7 @@ function Djradio(props) {
       getDjRecommendDispatch();
       getDjProgramTopListDispatch();
     }
+
     let id = props.location.search.slice(4);
     if (id) {
       let data = `offset=${(query.page - 1) * 21}&limit=21&cateId=${id}`;
@@ -57,8 +58,7 @@ function Djradio(props) {
   const topBanner = () => {
     return (
       <ul className='banner'>
-        {djCategory.length
-          ? djCategory.map((item) => {
+        {djCategory.map((item) => {
               return (
                 <li key={item.id}>
                   <Link
@@ -79,8 +79,7 @@ function Djradio(props) {
                   </Link>
                 </li>
               );
-            })
-          : ""}
+            })}
       </ul>
     );
   };
@@ -100,8 +99,7 @@ function Djradio(props) {
             </Link>
           </div>
           <ul className='box'>
-            {djRecommendList.length
-              ? djRecommendList.slice(0, 10).map((item, index) => {
+            {djRecommendList.slice(0, 10).map((item, index) => {
                   return (
                     <li
                       key={item.id}
@@ -130,8 +128,7 @@ function Djradio(props) {
                       </Link>
                     </li>
                   );
-                })
-              : ""}
+                })}
           </ul>
         </div>
 
@@ -193,8 +190,7 @@ function Djradio(props) {
         </div>
 
         <ul className='hotRadioList'>
-          {hotRadioList.length
-            ? hotRadioList.map((item, index) => {
+          {hotRadioList.map((item, index) => {
                 return (
                   <li key={item.id}>
                     <Link to={`/djradio?id=${item.id}`}>
@@ -221,8 +217,7 @@ function Djradio(props) {
                     </div>
                   </li>
                 );
-              })
-            : ""}
+              })}
         </ul>
         {/* 分页 */}
         <Pagination
@@ -249,8 +244,7 @@ function Djradio(props) {
         </div>
 
         <ul className='allbox'>
-          {djRecommendList.length
-            ? djRecommendList.map((item, index) => {
+          { djRecommendList.map((item, index) => {
                 return (
                   <li
                     key={item.id}
@@ -282,8 +276,7 @@ function Djradio(props) {
                     </Link>
                   </li>
                 );
-              })
-            : ""}
+              })}
         </ul>
       </div>
     );
